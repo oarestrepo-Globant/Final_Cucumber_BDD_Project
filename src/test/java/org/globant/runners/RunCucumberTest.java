@@ -1,6 +1,8 @@
 package org.globant.runners;
 
+import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
+import org.testng.annotations.Parameters;
 
 @CucumberOptions(glue = {"org.globant.testing.stepDefinitions"},
         features = "org.globant.testing.features",
@@ -8,6 +10,6 @@ import io.cucumber.testng.CucumberOptions;
         snippets = CucumberOptions.SnippetType.CAMELCASE)
 
 
-public class RunCucumberTest {
+public class RunCucumberTest extends AbstractTestNGCucumberTests {
 
 }
