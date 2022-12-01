@@ -1,16 +1,17 @@
+<!--
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="Test Final Exam">
-    <!--<listeners>
+    &lt;!&ndash;<listeners>
         <listener class-name="org.globant.utils.Listener"/>
-    </listeners>-->
+    </listeners>&ndash;&gt;
 
-    <parameter name="url" value="https://www.espnqa.com/?src=com&amp;_adblock=true&amp;espn=cloud"/>
+    &lt;!&ndash;<parameter name="url" value="https://www.espnqa.com/?src=com&amp;_adblock=true&amp;espn=cloud"/>&ndash;&gt;
 
-    <test name="Web and Mobile Test">
+    &lt;!&ndash;<test name="Web and Mobile Test">
         <parameter name="browser" value="chrome"/>
         <classes>
             <class name="org.globant.runners.RunCucumberTest"/>
         </classes>
-    </test>
-</suite>
+    </test>&ndash;&gt;
+</suite>-->

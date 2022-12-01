@@ -3,16 +3,15 @@ package org.globant.configuraton;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.Parameters;
 
 public class Driver {
     private WebDriver  webDriver;
 
-    public Driver(String browser){
+    public Driver(){
         WebDriverManager.chromedriver().setup();
         webDriver = new ChromeDriver();
     }
-    @Parameters({"url"})
+    //@Parameters({"url"})
     public WebDriver getDriver() {
         return webDriver;
     }
@@ -25,8 +24,8 @@ public class Driver {
         getDriver().manage().deleteAllCookies();
     }
 
-    public void getUrl(){
-        webDriver.get("https://www.espnqa.com/?src=com&_adblock=true&espn=cloud");
+    public void getUrl(String url){
+        webDriver.get(url);
     }
 
     public void maximizeWindow(){
