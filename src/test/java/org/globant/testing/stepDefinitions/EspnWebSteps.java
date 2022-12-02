@@ -6,6 +6,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.globant.utils.baseTest.BaseTest;
 import org.testng.Assert;
+import org.testng.annotations.Test;
 
 
 /**
