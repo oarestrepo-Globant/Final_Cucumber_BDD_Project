@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-public class HomePage extends BaseWebPage{
+public class ESPNHomePage extends BaseWebPage{
     @FindBy(id="global-viewport")
     private WebElement homePageView;
     @FindBy(id ="global-user-trigger")
@@ -56,7 +56,7 @@ public class HomePage extends BaseWebPage{
     @FindBy(css="#Title > span")
     private WebElement areYouSureText;
 
-    public HomePage(WebDriver driver) {
+    public ESPNHomePage(WebDriver driver) {
         super(driver);
     }
 
@@ -103,10 +103,10 @@ public class HomePage extends BaseWebPage{
         return userNameInNavText.getText();
     }
 
-   /* public WatchPage clickWatchButton(){
+    public ESPNWatchPage clickWatchButton(){
         super.clickElement(watchButton);
-        return new WatchPage(super.getDriver());
-    }*/
+        return new ESPNWatchPage(super.getDriver());
+    }
 
     public void clickLogoutButton() {
         super.clickElement(logoutButton);
