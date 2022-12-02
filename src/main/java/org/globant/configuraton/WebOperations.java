@@ -12,7 +12,8 @@ import java.util.List;
 import static org.openqa.selenium.support.PageFactory.initElements;
 /**
  * Class for WebOperations.
- * This class has methods that recreate the general actions of a user on a web page. *
+ * This class has methods that recreate the general actions of a user on a web page.
+ *
  * */
 public class WebOperations {
     private final WebDriver driver;
