@@ -18,7 +18,6 @@ public class EspnWebSteps extends BaseTest {
         testSetup(url);
     }*/
 
-
     @Given("Open browser and enter ESPN url")
     public void openBrowserAndEnterESPNUrl() {
         testSetup(url);
@@ -82,6 +81,15 @@ public class EspnWebSteps extends BaseTest {
 
         log.info("Verify home page is displayed");
         Assert.assertEquals(home.getUsernameLogged(), "Oscar!");
+    }
+
+    @And("I can log out")
+    public void iCanLogOut() {
+        log.info("Doing Log out");
+        home.clickLogoutButton();
+
+        log.info("Logout successfully");
+        Assert.assertTrue(home.checkUserIsLoggedOut(),"Unsuccessfully logout");
     }
 
    /* @AfterAll
