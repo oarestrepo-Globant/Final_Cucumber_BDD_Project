@@ -41,6 +41,12 @@ public class ESPNHomePage extends BaseWebPage{
     @FindBy(css="ul .account-management >li > a[tref='/members/v3_1/modifyAccount']")
     private WebElement espnProfileButton;
 
+    @FindBy(css=".form-section > #BtnSubmit")
+    private WebElement submitButtonFromLoginAndLogutIframe;
+
+   /* @FindBy(css="#Title > span")
+    private WebElement areYouSureText;
+
     @FindBy(css="a[id='AccountDeleteLink']")
     private WebElement deleteAccountTextButton;
 
@@ -48,13 +54,7 @@ public class ESPNHomePage extends BaseWebPage{
     private WebElement yesDeleteAccountButton;
 
     @FindBy(id="#BtnSubmit")
-    private WebElement okButtonFromDeleteAccount;
-
-    @FindBy(css=".form-section > #BtnSubmit")
-    private WebElement submitButtonFromLoginAndLogutIframe;
-
-    @FindBy(css="#Title > span")
-    private WebElement areYouSureText;
+    private WebElement okButtonFromDeleteAccount;*/
 
     public ESPNHomePage(WebDriver driver) {
         super(driver);
@@ -132,7 +132,7 @@ public class ESPNHomePage extends BaseWebPage{
         checkUserIsLoggedOut();
     }
 
-    public void waitForAreYouSureText(){
+   /* public void waitForAreYouSureText(){
         super.waitForVisibility(areYouSureText);
     }
 
@@ -164,5 +164,5 @@ public class ESPNHomePage extends BaseWebPage{
         text = areYouSureText.getText();
 
         return text.contains(a) || text.contains(b);
-    }
+    }*/
 }

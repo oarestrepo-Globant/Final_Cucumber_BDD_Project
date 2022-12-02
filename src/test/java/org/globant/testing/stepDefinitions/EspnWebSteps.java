@@ -1,5 +1,6 @@
 package org.globant.testing.stepDefinitions;
 
+import io.cucumber.java.*;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
