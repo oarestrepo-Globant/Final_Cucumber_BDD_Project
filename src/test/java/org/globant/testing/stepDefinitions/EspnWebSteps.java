@@ -1,5 +1,6 @@
 package org.globant.testing.stepDefinitions;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -16,6 +17,7 @@ public class EspnWebSteps extends BaseTest {
         testSetup(url);
     }*/
 
+
     @Given("Open browser and enter ESPN url")
     public void openBrowserAndEnterESPNUrl() {
         testSetup(url);
@@ -23,6 +25,7 @@ public class EspnWebSteps extends BaseTest {
 
     @Given("I place mouse over the icon user avatar")
     public void iPlaceMouseOverTheIconUserAvatar() {
+//        home.logout();
         log.info("Place mouse over icon user avatar");
         home.placeMouseOnUserIcon();
     }
@@ -49,7 +52,26 @@ public class EspnWebSteps extends BaseTest {
         Assert.assertTrue(home.isSignUpButtonDisplayed(), "The modal NOT contains SignUp button");
     }
 
+    @Given("As a logged user go the Watch page")
+    public void asALoggedUserGoTheWatchPage() {
+        //ESTOS VALORES DEBEN SER PASADOS POR PARAMETROS
+        home.login(email, password);
+        home.clickWatchButton();
+    }
 
+
+    @Then("I can see specified elements")
+    public void iCanSeeSpecifiedElements() {
+        log.info("Verify at least one carousel is displayed");
+        Assert.assertTrue(watchPage.verifyAtLeastOneCarouselIsDisplayed(), "No carousel is displayed");
+
+        log.info("");
+        watchPage.isAllCardsFromCarousel();
+    }
+
+    @And("I can go back to the landing page")
+    public void iCanGoBackToTheLandingPage() {
+    }
 
    /* @AfterAll
     public static void afterAll(){
