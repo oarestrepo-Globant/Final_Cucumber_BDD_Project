@@ -13,8 +13,9 @@ Feature: Espn web navigation review
     When I click  login button
     Then Modal is present and contains specified elements
 
-  #2 @loginNeeded
+  #5-8  @loginNeeded
   Scenario: Navigate to Watch page and come back to landing page
     Given As a logged user go the Watch page
     Then I can see specified elements
     And I can go back to the landing page
+

@@ -118,7 +118,7 @@ public class ESPNHomePage extends BaseWebPage{
         return userNameInNavTextList.size() == 0;
     }
 
-    public boolean login(String email, String password) {
+    public boolean loginProcess(String email, String password) {
         placeMouseOnUserIcon();
         clickLoginUserButton();
         changeToLoginIframe();
@@ -126,7 +126,7 @@ public class ESPNHomePage extends BaseWebPage{
         return true;
     }
 
-    public void logout(){
+    public void logoutProcess(){
         placeMouseOnUserIcon();
         clickLogoutButton();
         checkUserIsLoggedOut();
