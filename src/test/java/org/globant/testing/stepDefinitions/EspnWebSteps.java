@@ -11,6 +11,7 @@ import static java.lang.String.format;
 
 public class EspnWebSteps extends BaseTest {
     private static String url = "https://www.espnqa.com/?src=com&_adblock=true&espn=cloud";
+    private String username = "Oscar!";
 
     /*@BeforeAll
     public static void beforeAll(){
@@ -55,22 +56,32 @@ public class EspnWebSteps extends BaseTest {
     @Given("As a logged user go the Watch page")
     public void asALoggedUserGoTheWatchPage() {
         //ESTOS VALORES DEBEN SER PASADOS POR PARAMETROS
-        home.login(email, password);
+        home.loginProcess(email, password);
         home.clickWatchButton();
     }
-
 
     @Then("I can see specified elements")
     public void iCanSeeSpecifiedElements() {
         log.info("Verify at least one carousel is displayed");
         Assert.assertTrue(watchPage.verifyAtLeastOneCarouselIsDisplayed(), "No carousel is displayed");
 
-        log.info("");
-        watchPage.isAllCardsFromCarousel();
+        log.info("Each card in the carousel has description");
+        Assert.assertTrue(watchPage.checkEachCardInCarouselHasDescription(), "At least one card has NOT description");
+
+        log.info("Verify x button is present in second card from the first carousel");
+        watchPage.isXButtonFromSupplierModalPresent();
+
+        log.info("Close modal");
+        watchPage.clickXButtonFromSupplierModal();
     }
 
     @And("I can go back to the landing page")
     public void iCanGoBackToTheLandingPage() {
+        log.info("Back to home page");
+        watchPage.backToHomePage();
+
+        log.info("Verify home page is displayed");
+        Assert.assertEquals(home.getUsernameLogged(), "Oscar!");
     }
 
    /* @AfterAll
