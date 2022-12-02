@@ -26,7 +26,7 @@ public class EspnWebSteps extends BaseTest {
 
     @Given("I place mouse over the icon user avatar")
     public void iPlaceMouseOverTheIconUserAvatar() {
-//        home.logout();
+        //home.logout();
         log.info("Place mouse over icon user avatar");
         home.placeMouseOnUserIcon();
     }
