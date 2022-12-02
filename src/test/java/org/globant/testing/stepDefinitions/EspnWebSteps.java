@@ -7,8 +7,11 @@ import io.cucumber.java.en.When;
 import org.globant.utils.baseTest.BaseTest;
 import org.testng.Assert;
 
-import static java.lang.String.format;
 
+/**
+ * Class for ESPN Web Steps.
+ * This class has methods that represent the step-by-step for the test automation of the espn page.
+ * */
 public class EspnWebSteps extends BaseTest {
     private static String url = "https://www.espnqa.com/?src=com&_adblock=true&espn=cloud";
     private String username = "Oscar!";
@@ -18,24 +21,37 @@ public class EspnWebSteps extends BaseTest {
         testSetup(url);
     }*/
 
+    /**
+     * This method lifts the driver, performs the initial configurations
+     * and allows you to open the browser and access the ESPN website.
+     * */
     @Given("Open browser and enter ESPN url")
     public void openBrowserAndEnterESPNUrl() {
         testSetup(url);
     }
 
+    /**
+     * Allows you to place the mouse over the user's avatar icon.
+     * */
     @Given("I place mouse over the icon user avatar")
     public void iPlaceMouseOverTheIconUserAvatar() {
-//        home.logout();
+        //home.logout();
         log.info("Place mouse over icon user avatar");
         home.placeMouseOnUserIcon();
     }
 
+    /**
+     * Allows to click on the login button.
+     * */
     @When("I click  login button")
     public void iClickLoginButton(){
         log.info("Click on login button");
         home.clickLoginUserButton();
     }
 
+    /**
+     * Check if the login modal is present. Then check that the ESPN logo, the login button and the signup button are present.
+     * */
     @Then("Modal is present and contains specified elements")
     public void modalIsPresentAndContainsSpecifiedElements() {
         log.info("Login modal is present");
@@ -51,6 +67,7 @@ public class EspnWebSteps extends BaseTest {
         log.info("SignUp button is displayed on login modal");
         Assert.assertTrue(home.isSignUpButtonDisplayed(), "The modal NOT contains SignUp button");
     }
+
 
     @Given("As a logged user go the Watch page")
     public void asALoggedUserGoTheWatchPage() {
