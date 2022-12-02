@@ -6,8 +6,6 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.globant.utils.baseTest.BaseTest;
 import org.testng.Assert;
-import org.testng.annotations.Test;
-
 
 /**
  * Class for ESPN Web Steps.
@@ -32,29 +30,20 @@ public class EspnWebSteps extends BaseTest {
     }
 
     /**
-     * Allows you to place the mouse over the user's avatar icon.
+     * Allows to create an account in the ESPN webpage
      * */
-    @Given("I place mouse over the icon user avatar")
-    public void iPlaceMouseOverTheIconUserAvatar() {
-        //home.logout();
+    @Given("I am a valid espn user")
+    public void iAmAValidEspnUser() {
         log.info("Place mouse over icon user avatar");
         home.placeMouseOnUserIcon();
-    }
 
-    /**
-     * Allows to click on the login button.
-     * */
-    @When("I click  login button")
-    public void iClickLoginButton(){
+        // ANTES DE ESTE METODO VA EL SIGNUP, POR LO QUE EL clickLogin se eliminaria
+
         log.info("Click on login button");
         home.clickLoginUserButton();
-    }
 
-    /**
-     * Check if the login modal is present. Then check that the ESPN logo, the login button and the signup button are present.
-     * */
-    @Then("Modal is present and contains specified elements")
-    public void modalIsPresentAndContainsSpecifiedElements() {
+        //home.changeToLoginIframe();
+
         log.info("Login modal is present");
         Assert.assertTrue(home.isModalLoginDisplayed(), "Modal is NOT present");
         home.changeToLoginIframe();
@@ -67,16 +56,24 @@ public class EspnWebSteps extends BaseTest {
 
         log.info("SignUp button is displayed on login modal");
         Assert.assertTrue(home.isSignUpButtonDisplayed(), "The modal NOT contains SignUp button");
+
+        //ARRIBA DE ESTA LINEA VA EL SIGNUP. Se eliminaria el login process
+        home.loginProcess(email, password);
     }
 
-
-    @Given("As a logged user go the Watch page")
-    public void asALoggedUserGoTheWatchPage() {
-        //ESTOS VALORES DEBEN SER PASADOS POR PARAMETROS
-        home.loginProcess(email, password);
+    /**
+     *Allows to navigate to the Watch page on the ESPN website.
+     * */
+    @When("I go to ESPN watch page")
+    public void iGoToESPNWatchPage() {
+        log.info("Go to Watch page");
         home.clickWatchButton();
     }
 
+    /**
+     * Check if the login modal is present. Then check that the ESPN logo, the login button and the signup button are present.
+     * Finally it close the modal.
+     * */
     @Then("I can see specified elements")
     public void iCanSeeSpecifiedElements() {
         log.info("Verify at least one carousel is displayed");
@@ -92,8 +89,11 @@ public class EspnWebSteps extends BaseTest {
         watchPage.clickXButtonFromSupplierModal();
     }
 
-    @And("I can go back to the landing page")
-    public void iCanGoBackToTheLandingPage() {
+    /**
+     * Allows to go back into previous page.
+     * */
+    @And("I can go back to the ESPN landing page")
+    public void iCanGoBackToTheESPNLandingPage() {
         log.info("Back to home page");
         watchPage.backToHomePage();
 
@@ -101,8 +101,11 @@ public class EspnWebSteps extends BaseTest {
         Assert.assertEquals(home.getUsernameLogged(), "Oscar!");
     }
 
-    @And("I can log out")
-    public void iCanLogOut() {
+    /**
+     * Allows the user to be logged out and check it has a successfully logout process.
+     * */
+    @And("I can logout from my ESPN account")
+    public void iCanLogoutFromMyESPNAccount() {
         log.info("Doing Log out");
         home.clickLogoutButton();
 
@@ -114,4 +117,5 @@ public class EspnWebSteps extends BaseTest {
     public static void afterAll(){
         tearDown();
     }*/
+
 }

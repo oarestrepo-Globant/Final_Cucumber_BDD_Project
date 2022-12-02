@@ -177,9 +177,9 @@ public class ESPNHomePage extends BaseWebPage{
      * @return true if the login was successfully, otherwise return false.
      * */
     public boolean loginProcess(String email, String password) {
-        placeMouseOnUserIcon();
+      /*  placeMouseOnUserIcon();
         clickLoginUserButton();
-        changeToLoginIframe();
+        changeToLoginIframe();*/
         enterLoginCredentials(email, password);
         return true;
     }
