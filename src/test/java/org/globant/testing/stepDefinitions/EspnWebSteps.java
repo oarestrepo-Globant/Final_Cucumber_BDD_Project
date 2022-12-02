@@ -108,7 +108,7 @@ public class EspnWebSteps extends BaseTest {
     }
 
     /**
-     * Allows the user to be logged out and check it has a successfully logout process.
+     * Allows the user to be logged out and check it has a successfully logout process..
      * */
     @And("I can logout from my ESPN account")
     public void iCanLogoutFromMyESPNAccount() {
