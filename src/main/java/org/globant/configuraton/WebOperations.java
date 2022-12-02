@@ -80,7 +80,7 @@ public class WebOperations {
      * */
     public void typeOnPlaceholder(WebElement element, String text){
         waitForVisibility(element);
-        placeMouseToElement(element);
+        //clickElement(element);
         element.sendKeys(text);
     }
 
@@ -120,7 +120,7 @@ public class WebOperations {
      * */
     public void scrollDownPage(){
         action
-                .scrollByAmount(0, 1000)
+                .scrollByAmount(0, 10000)
                 .perform();
     }
 

@@ -45,7 +45,7 @@ public class ESPNHomePage extends BaseWebPage{
     @FindBy(css="ul .account-management >li > a[tref='/members/v3_1/modifyAccount']")
     private WebElement espnProfileButton;
 
-    @FindBy(css="a[id='AccountDeleteLink']")
+   /* @FindBy(css="a[id='AccountDeleteLink']")
     private WebElement deleteAccountTextButton;
 
     @FindBy(css="button#BtnSubmit")
@@ -58,7 +58,45 @@ public class ESPNHomePage extends BaseWebPage{
     private WebElement submitButtonFromLoginAndLogutIframe;
 
     @FindBy(css="#Title > span")
-    private WebElement areYouSureText;
+    private WebElement areYouSureText;*/
+
+    ////////
+
+    @FindBy(id="InputFirstName")
+    private WebElement signupFirstNamePlaceHolder;
+
+    @FindBy(id="InputLastName")
+    private WebElement signupLastNamePlaceHolder;
+
+    @FindBy(id="InputEmail")
+    private WebElement signupEmailPlaceHolder;
+
+    @FindBy(id="password-new")
+    private WebElement signupPasswordPlaceHolder;
+
+    @FindBy(id="BtnSubmit")
+    private WebElement signUpButtonFromModal;
+
+
+    ////////
+
+   // AQUI VA LA LOGICA DEL SIGNUP
+
+    public void clickSubmitButton() {
+        super.clickElement(signUpButton);
+    }
+
+    public void fillSignUpForm(){
+        super.typeOnPlaceholder(signupFirstNamePlaceHolder, "Oscar");
+        super.typeOnPlaceholder(signupLastNamePlaceHolder, "Restrepo");
+        super.typeOnPlaceholder(signupEmailPlaceHolder, "aallkas@aljaiio3.com");
+        super.typeOnPlaceholder(signupPasswordPlaceHolder, "Oscar123A");
+        super.scrollDownPage();
+        super.clickElement(signUpButtonFromModal);
+    }
+
+    ////////
+
 
     /**
      * Constructor method for ESPNHomePage class.

@@ -37,12 +37,10 @@ public class EspnWebSteps extends BaseTest {
         log.info("Place mouse over icon user avatar");
         home.placeMouseOnUserIcon();
 
-        // ANTES DE ESTE METODO VA EL SIGNUP, POR LO QUE EL clickLogin se eliminaria
-
         log.info("Click on login button");
         home.clickLoginUserButton();
-
         //home.changeToLoginIframe();
+
 
         log.info("Login modal is present");
         Assert.assertTrue(home.isModalLoginDisplayed(), "Modal is NOT present");
@@ -57,8 +55,16 @@ public class EspnWebSteps extends BaseTest {
         log.info("SignUp button is displayed on login modal");
         Assert.assertTrue(home.isSignUpButtonDisplayed(), "The modal NOT contains SignUp button");
 
-        //ARRIBA DE ESTA LINEA VA EL SIGNUP. Se eliminaria el login process
-        home.loginProcess(email, password);
+        //////SIGNUP ABAJO DE ESTA LINEA
+
+        log.info("Click first signup button");
+        home.clickSubmitButton();
+
+        log.info("Fill signup form");
+        home.fillSignUpForm();
+
+        //////SIGNUP ARRIBA DE ESTA LINEA
+
     }
 
     /**
