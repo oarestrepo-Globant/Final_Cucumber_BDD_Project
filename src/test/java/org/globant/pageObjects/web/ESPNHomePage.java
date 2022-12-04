@@ -45,22 +45,10 @@ public class ESPNHomePage extends BaseWebPage{
     @FindBy(css="ul .account-management >li > a[tref='/members/v3_1/modifyAccount']")
     private WebElement espnProfileButton;
 
-   /* @FindBy(css="a[id='AccountDeleteLink']")
-    private WebElement deleteAccountTextButton;
+   ///
 
-    @FindBy(css="button#BtnSubmit")
-    private WebElement yesDeleteAccountButton;
-
-    @FindBy(id="#BtnSubmit")
-    private WebElement okButtonFromDeleteAccount;
-
-    @FindBy(css=".form-section > #BtnSubmit")
-    private WebElement submitButtonFromLoginAndLogutIframe;
-
-    @FindBy(css="#Title > span")
-    private WebElement areYouSureText;*/
-
-    ////////
+    @FindBy(css="h2#Title")
+    private WebElement signupTitle;
 
     @FindBy(id="InputFirstName")
     private WebElement signupFirstNamePlaceHolder;
@@ -77,27 +65,111 @@ public class ESPNHomePage extends BaseWebPage{
     @FindBy(id="BtnSubmit")
     private WebElement signUpButtonFromModal;
 
+    @FindBy(css="button[id=\"close\"]")
+    private WebElement signupXCloseButton;
 
     ////////
 
    // AQUI VA LA LOGICA DEL SIGNUP
 
+    /**
+     * Allows to click on signup button.
+     * */
     public void clickSubmitButton() {
         super.clickElement(signUpButton);
     }
 
-    public void fillSignUpForm(){
+    /**
+     * Allows you to locate the elements of the signup form
+     * and then fill out the necessary information to create an account on the ESPN website.
+     * */
+    public void fillSignUpFormAndCreateAccount(){
         super.typeOnPlaceholder(signupFirstNamePlaceHolder, "Oscar");
         super.typeOnPlaceholder(signupLastNamePlaceHolder, "Restrepo");
-        super.typeOnPlaceholder(signupEmailPlaceHolder, "aallkas@aljaiio3.com");
+        super.typeOnPlaceholder(signupEmailPlaceHolder, "654llkas@aldio3.com");
         super.typeOnPlaceholder(signupPasswordPlaceHolder, "Oscar123A");
         super.scrollDownPage();
         super.clickElement(signUpButtonFromModal);
     }
 
+    /**
+     * Allows to check if ‘Sign Up’ title is displayed.
+     * @return true if it is displayed, false otherwise.
+     * */
+    public boolean checkIfSignUpTitleIsDisplayed() {
+       return signupTitle.isDisplayed();
+    }
+
+    /**
+     * Allows to check if ‘First Name’ input is displayed.
+     * @return true if it is displayed, otherwise return false.
+     * */
+    public boolean checkIfFirstNameInputIsDisplayed() {
+        return signupFirstNamePlaceHolder.isDisplayed();
+    }
+
+    /**
+     * Allows to check if ‘Last Name’ input is displayed.
+     * @return true if it is displayed, otherwise return false.
+     * */
+    public boolean checkIfLastNameInputIsDisplayed() {
+        return signupLastNamePlaceHolder.isDisplayed();
+    }
+
+    /**
+     * Allows to check if ‘Email’ input is displayed.
+     * @return true if it is displayed, otherwise return false.
+     * */
+    public boolean checkIfEmailInputIsDisplayed() {
+        return signupEmailPlaceHolder.isDisplayed();
+    }
+
+    /**
+     * Allows to check if ‘Password’ input is displayed.
+     * @return true if it is displayed, otherwise return false.
+     * */
+    public boolean checkIfPasswordInputIsDisplayed() {
+        return signupPasswordPlaceHolder.isDisplayed();
+    }
+
+    /**
+     * Allows to check if ‘Sign Up’ button is displayed.
+     * @return true if it is displayed, otherwise return false.
+     * */
+    public boolean checkIfSignUpButtonIsDisplayed() {
+        return signUpButtonFromModal.isDisplayed();
+    }
+
+    /**
+     * Allows to check if ‘X’ close button is displayed.
+     * @return true if it is displayed, otherwise return false.
+     * */
+    public boolean checkIfXCloseButtonIsDisplayed() {
+        return signupXCloseButton.isDisplayed();
+    }
+
+    /**
+     * Allows to verify if all specified elements are displayed.
+     *      a. ‘Sign Up’ title is present
+     *      b. ‘First Name’ input is present
+     *      c. ‘Last name’ input is present
+     *      d. ‘Email’ input is present
+     *      e. ‘Password’ input is present
+     *      f. ‘Sign Up’ button
+     *      g. 'X' close button
+     * @return true if all elements are displayed, otherwise return false.
+     * */
+    public boolean checkIfAllElementsFromSingUpModalAreDisplayed() {
+        return checkIfSignUpTitleIsDisplayed() &&
+                checkIfFirstNameInputIsDisplayed() &&
+                checkIfLastNameInputIsDisplayed() &&
+                checkIfEmailInputIsDisplayed() &&
+                checkIfPasswordInputIsDisplayed() &&
+                checkIfSignUpButtonIsDisplayed() &&
+                checkIfXCloseButtonIsDisplayed();
+    }
+
     ////////
-
-
     /**
      * Constructor method for ESPNHomePage class.
      * @param driver:WebDriver
@@ -158,7 +230,7 @@ public class ESPNHomePage extends BaseWebPage{
     }
 
     /**
-     *Allows you to click on the login button
+     *Allows you to click on the login button.
      * */
     public void clickLoginUserButton(){
         super.clickElement(loginUserButton);
@@ -176,7 +248,7 @@ public class ESPNHomePage extends BaseWebPage{
     }
 
     /**
-     * Allows you to obtain the user name displayed in the user panel.
+     * Allows you to obtain the username displayed in the user panel.
      * */
     public String getUsernameLogged() {
         super.placeMouseToElement(userIcon);

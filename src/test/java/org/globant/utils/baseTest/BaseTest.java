@@ -20,8 +20,8 @@ public class BaseTest  {
     protected static ESPNWatchPage watchPage;
     public static Logger log = Logger.getLogger(BaseTest.class);
 
-    protected static final String email = "test.espn@test.com";
-    protected static final String password = "oscar123";
+    /*protected static final String email = "test.espn@test.com";
+    protected static final String password = "oscar123";*/
 
     /**
      * Allows you to open a dirver, open the browser, delete cookies and open the ESPN site in full screen mode.

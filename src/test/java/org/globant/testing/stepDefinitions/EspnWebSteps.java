@@ -30,8 +30,9 @@ public class EspnWebSteps extends BaseTest {
     }
 
     /**
-     * Allows to create an account in the ESPN webpage
+     * Verify that the entire process to create an account on the espn website is successful.
      * */
+   
     @Given("I am a valid espn user")
     public void iAmAValidEspnUser() {
         log.info("Place mouse over icon user avatar");
@@ -39,8 +40,6 @@ public class EspnWebSteps extends BaseTest {
 
         log.info("Click on login button");
         home.clickLoginUserButton();
-        //home.changeToLoginIframe();
-
 
         log.info("Login modal is present");
         Assert.assertTrue(home.isModalLoginDisplayed(), "Modal is NOT present");
@@ -55,20 +54,20 @@ public class EspnWebSteps extends BaseTest {
         log.info("SignUp button is displayed on login modal");
         Assert.assertTrue(home.isSignUpButtonDisplayed(), "The modal NOT contains SignUp button");
 
-        //////SIGNUP ABAJO DE ESTA LINEA
+        /// Sign Up
 
         log.info("Click first signup button");
         home.clickSubmitButton();
 
-        log.info("Fill signup form");
-        home.fillSignUpForm();
+        log.info("Specified elements from SignUp modal are displayed");
+        Assert.assertTrue(home.checkIfAllElementsFromSingUpModalAreDisplayed(), "Not all elements are displayed");
 
-        //////SIGNUP ARRIBA DE ESTA LINEA
-
+        log.info("Fill signup form and create account");
+        home.fillSignUpFormAndCreateAccount();
     }
 
     /**
-     *Allows to navigate to the Watch page on the ESPN website.
+     * Direct the test to espn's watch page.
      * */
     @When("I go to ESPN watch page")
     public void iGoToESPNWatchPage() {
@@ -96,7 +95,7 @@ public class EspnWebSteps extends BaseTest {
     }
 
     /**
-     * Allows to go back into previous page.
+     * Verify that the user can return to the home page from the watch page.
      * */
     @And("I can go back to the ESPN landing page")
     public void iCanGoBackToTheESPNLandingPage() {
@@ -108,7 +107,7 @@ public class EspnWebSteps extends BaseTest {
     }
 
     /**
-     * Allows the user to be logged out and check it has a successfully logout process..
+     * Allows the user to be logged out. Then check if it was a successfully logout.
      * */
     @And("I can logout from my ESPN account")
     public void iCanLogoutFromMyESPNAccount() {
@@ -118,6 +117,13 @@ public class EspnWebSteps extends BaseTest {
         log.info("Logout successfully");
         Assert.assertTrue(home.checkUserIsLoggedOut(),"Unsuccessfully logout");
     }
+
+    @Given("I want to be new user and fill signup form with {string} {string} {string} {string}")
+    public void iWantToBeNewUserAndFillSignupFormWith(String firstname, String lastname, String email, String password) {
+        throw new io.cucumber.java.PendingException();
+    }
+
+    
 
    /* @AfterAll
     public static void afterAll(){
