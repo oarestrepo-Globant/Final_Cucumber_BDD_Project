@@ -128,14 +128,14 @@ public class BaseWebPage  {
                 .perform();
     }
 
-    /**
+   /* *//**
      * Allows you to wait for the visibility of the text of an element on the web page.
      * @param element: WebElement
      * @param text:String
      * @return true if the text is visible on the element, otherwise returns false
-     * */
+     * *//*
     public boolean waitForText(WebElement element, String text){
         return  wait.until(ExpectedConditions.textToBePresentInElement(element, text));
-    }
+    }*/
 }
 

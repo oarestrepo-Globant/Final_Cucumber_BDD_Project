@@ -45,8 +45,6 @@ public class ESPNHomePage extends BaseWebPage{
     @FindBy(css="ul .account-management >li > a[tref='/members/v3_1/modifyAccount']")
     private WebElement espnProfileButton;
 
-   ///
-
     @FindBy(css="h2#Title")
     private WebElement signupTitle;
 
@@ -68,9 +66,6 @@ public class ESPNHomePage extends BaseWebPage{
     @FindBy(css="button[id=\"close\"]")
     private WebElement signupXCloseButton;
 
-    ////////
-
-   // AQUI VA LA LOGICA DEL SIGNUP
 
     /**
      * Allows to click on signup button.
@@ -83,11 +78,11 @@ public class ESPNHomePage extends BaseWebPage{
      * Allows you to locate the elements of the signup form
      * and then fill out the necessary information to create an account on the ESPN website.
      * */
-    public void fillSignUpFormAndCreateAccount(){
-        super.typeOnPlaceholder(signupFirstNamePlaceHolder, "Oscar");
-        super.typeOnPlaceholder(signupLastNamePlaceHolder, "Restrepo");
-        super.typeOnPlaceholder(signupEmailPlaceHolder, "654llkas@aldio3.com");
-        super.typeOnPlaceholder(signupPasswordPlaceHolder, "Oscar123A");
+    public void fillSignUpFormAndCreateAccount(String firstname, String lastname, String email, String password){
+        super.typeOnPlaceholder(signupFirstNamePlaceHolder, firstname);
+        super.typeOnPlaceholder(signupLastNamePlaceHolder,  lastname);
+        super.typeOnPlaceholder(signupEmailPlaceHolder, email);
+        super.typeOnPlaceholder(signupPasswordPlaceHolder, password);
         super.scrollDownPage();
         super.clickElement(signUpButtonFromModal);
     }
@@ -169,7 +164,6 @@ public class ESPNHomePage extends BaseWebPage{
                 checkIfXCloseButtonIsDisplayed();
     }
 
-    ////////
     /**
      * Constructor method for ESPNHomePage class.
      * @param driver:WebDriver
@@ -237,17 +231,6 @@ public class ESPNHomePage extends BaseWebPage{
     }
 
     /**
-     * Allows to write email and password for login.
-     * @param email:String
-     * @param password:String
-     * */
-    public void enterLoginCredentials(String email, String password){
-        super.typeOnPlaceholder(placeHolderUserName, email);
-        super.typeOnPlaceholder(placeHolderPassword, password);
-        super.clickElement(loginButton);
-    }
-
-    /**
      * Allows you to obtain the username displayed in the user panel.
      * */
     public String getUsernameLogged() {
@@ -280,29 +263,7 @@ public class ESPNHomePage extends BaseWebPage{
         return userNameInNavTextList.size() == 0;
     }
 
-    /**
-     * It makes the login process and validate that it was successfully.
-     * @param email:String
-     * @param password:String
-     * @return true if the login was successfully, otherwise return false.
-     * */
-    public boolean loginProcess(String email, String password) {
-      /*  placeMouseOnUserIcon();
-        clickLoginUserButton();
-        changeToLoginIframe();*/
-        enterLoginCredentials(email, password);
-        return true;
-    }
 
-    /**
-     * It makes the logout process and validate that it was successfully.
-     * @return true if the logout was successfully, otherwise return false.
-     * */
-    public void logoutProcess(){
-        placeMouseOnUserIcon();
-        clickLogoutButton();
-        checkUserIsLoggedOut();
-    }
 /*
     public void waitForAreYouSureText(){
         super.waitForVisibility(areYouSureText);
@@ -336,5 +297,40 @@ public class ESPNHomePage extends BaseWebPage{
         text = areYouSureText.getText();
 
         return text.contains(a) || text.contains(b);
+    }*/
+
+    /* *//**
+     * It makes the login process and validate that it was successfully.
+     * @param email:String
+     * @param password:String
+     * @return true if the login was successfully, otherwise return false.
+     * *//*
+    public boolean loginProcess(String email, String password) {
+      *//*  placeMouseOnUserIcon();
+        clickLoginUserButton();
+        changeToLoginIframe();*//*
+        enterLoginCredentials(email, password);
+        return true;
+    }*/
+
+  /*  *//**
+     * It makes the logout process and validate that it was successfully.
+     * @return true if the logout was successfully, otherwise return false.
+     * *//*
+    public void logoutProcess(){
+        placeMouseOnUserIcon();
+        clickLogoutButton();
+        checkUserIsLoggedOut();
+    }*/
+
+    /* *//**
+     * Allows to write email and password for login.
+     * @param email:String
+     * @param password:String
+     * *//*
+    public void enterLoginCredentials(String email, String password){
+        super.typeOnPlaceholder(placeHolderUserName, email);
+        super.typeOnPlaceholder(placeHolderPassword, password);
+        super.clickElement(loginButton);
     }*/
 }

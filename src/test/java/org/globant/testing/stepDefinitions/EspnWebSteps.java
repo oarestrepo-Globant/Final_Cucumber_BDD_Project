@@ -32,8 +32,40 @@ public class EspnWebSteps extends BaseTest {
     /**
      * Verify that the entire process to create an account on the espn website is successful.
      * */
+    @Given("I want to be new user and fill signup form with {string} {string} {string} {string}")
+    public void iWantToBeNewUserAndFillSignupFormWith(String firstname, String lastname, String email, String password) {
+        log.info("Place mouse over icon user avatar");
+        home.placeMouseOnUserIcon();
+
+        log.info("Click on login button");
+        home.clickLoginUserButton();
+
+        log.info("Login modal is present");
+        Assert.assertTrue(home.isModalLoginDisplayed(), "Modal is NOT present");
+        home.changeToLoginIframe();
+
+        log.info("ESPN logo is displayed in login modal");
+        Assert.assertTrue(home.isEspnLogoDisplayed(), "The modal NOT contains ESPN logo");
+
+        log.info("Login button is displayed on login modal");
+        Assert.assertTrue(home.isLoginIsDisplayed(), "The modal NOT contains login button");
+
+        log.info("SignUp button is displayed on login modal");
+        Assert.assertTrue(home.isSignUpButtonDisplayed(), "The modal NOT contains SignUp button");
+
+        /// Sign Up
+
+        log.info("Click first signup button");
+        home.clickSubmitButton();
+
+        log.info("Specified elements from SignUp modal are displayed");
+        Assert.assertTrue(home.checkIfAllElementsFromSingUpModalAreDisplayed(), "Not all elements are displayed");
+
+        log.info("Fill signup form and create account");
+        home.fillSignUpFormAndCreateAccount(firstname,  lastname,  email, password);
+    }
    
-    @Given("I am a valid espn user")
+    /*@Given("I am a valid espn user")
     public void iAmAValidEspnUser() {
         log.info("Place mouse over icon user avatar");
         home.placeMouseOnUserIcon();
@@ -64,7 +96,7 @@ public class EspnWebSteps extends BaseTest {
 
         log.info("Fill signup form and create account");
         home.fillSignUpFormAndCreateAccount();
-    }
+    }*/
 
     /**
      * Direct the test to espn's watch page.
@@ -118,10 +150,7 @@ public class EspnWebSteps extends BaseTest {
         Assert.assertTrue(home.checkUserIsLoggedOut(),"Unsuccessfully logout");
     }
 
-    @Given("I want to be new user and fill signup form with {string} {string} {string} {string}")
-    public void iWantToBeNewUserAndFillSignupFormWith(String firstname, String lastname, String email, String password) {
-        throw new io.cucumber.java.PendingException();
-    }
+
 
     
 

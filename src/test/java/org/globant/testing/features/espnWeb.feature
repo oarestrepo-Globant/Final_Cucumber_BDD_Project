@@ -15,4 +15,4 @@ Feature: Espn web navigation
       And I can logout from my ESPN account
       Examples:
         | firstname | lastname   | email              | password      |
-        | "Oscar"   | "Restrepo" | "1@loqueseax2.com" | "password123" |
+        | "Oscar"   | "Restrepo" | "8@loqueseax2.com" | "password123" |
