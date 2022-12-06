@@ -5,16 +5,16 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 /**
- * Class for Web Driver.
+ * Class for Web WebDriverConfig.
  * This class has the methods related to the chrome driver.
  * */
-public class Driver {
+public class WebDriverConfig {
     private WebDriver  webDriver;
 
     /**
      * Constructor method for web driver class.
      * */
-    public Driver(){
+    public WebDriverConfig(){
         WebDriverManager.chromedriver().setup();
         webDriver = new ChromeDriver();
     }

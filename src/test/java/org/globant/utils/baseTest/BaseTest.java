@@ -1,7 +1,7 @@
 package org.globant.utils.baseTest;
 
 import org.apache.log4j.Logger;
-import org.globant.configuration.Driver;
+import org.globant.configuration.WebDriverConfig;
 import org.globant.pageObjects.web.ESPNHomePage;
 import org.globant.pageObjects.web.ESPNWatchPage;
 
@@ -11,30 +11,33 @@ import static java.lang.String.format;
 /**
  * Class for ESPN Base Test.
  * This class has the setup to start the test.
- * It defines  driver, home Page and Watchpage as a static attribute.
+ * It defines  driver, home Page and Watch page as a static attribute.
  * */
-
 public class BaseTest  {
-    protected static Driver driver;
+    protected static WebDriverConfig driver;
     protected static ESPNHomePage home;
     protected static ESPNWatchPage watchPage;
+    private static String url = "https://www.espnqa.com/?src=com&_adblock=true&espn=cloud";
     public static Logger log = Logger.getLogger(BaseTest.class);
 
-    /*protected static final String email = "test.espn@test.com";
-    protected static final String password = "oscar123";*/
-
     /**
-     * Allows you to open a driver, open the browser, delete cookies and open the ESPN site in full screen mode.
+     * Allows you to open a driver, open the browser and delete cookies.
      * */
-    protected static void testSetup(String url) {
-        driver = new Driver();
+    protected static void testSetup() {
+        driver = new WebDriverConfig();
         log.info("Deleting all cookies");
         driver.deleteCookies();
-        log.info(format("Navigating to %s", url));
-        driver.getUrl(url);
-        driver.maximizeWindow();
         home = new ESPNHomePage(driver.getDriver());
         watchPage = new ESPNWatchPage(driver.getDriver());
+    }
+
+    /**
+     * It opens the espn home page on the browser.
+     * */
+    public void goToEspnPage() {
+        log.info(format("Navigating to %s", this.url));
+        driver.getUrl(this.url);
+        driver.maximizeWindow();
     }
 
     /**
@@ -43,5 +46,4 @@ public class BaseTest  {
     protected static void tearDown(){
         driver.closeBrowser();
     }
-
 }
