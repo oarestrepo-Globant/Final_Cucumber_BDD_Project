@@ -1,7 +1,7 @@
 package org.globant.utils.baseTest;
 
 import org.apache.log4j.Logger;
-import org.globant.configuraton.Driver;
+import org.globant.configuration.Driver;
 import org.globant.pageObjects.web.ESPNHomePage;
 import org.globant.pageObjects.web.ESPNWatchPage;
 

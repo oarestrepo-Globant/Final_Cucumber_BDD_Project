@@ -223,10 +223,6 @@ public class ESPNHomePage extends BaseWebPage{
         return loginButton.isDisplayed();
     }
 
-   /* public boolean isModalEelementsDisplayed(){
-        return isEspnLogoDisplayed() && isSignUpButtonDisplayed() && isLoginIsDisplayed();
-    }*/
-
     /**
      * Allows you to switch to the login iframe.
      * */
@@ -273,74 +269,4 @@ public class ESPNHomePage extends BaseWebPage{
         super.placeMouseToElement(userIcon);
         return userNameInNavTextList.size() == 0;
     }
-/*
-
-    public void waitForAreYouSureText(){
-        super.waitForVisibility(areYouSureText);
-    }
-
-    //FACTORIZAR
-    public void deactivate()  {
-        placeMouseOnUserIcon();
-        super.clickElement(espnProfileButton);
-        changeToLoginIframe();
-        super.waitForVisibility(deleteAccountTextButton);
-        super.scrollDownPage();
-        super.placeMouseToElement(deleteAccountTextButton);
-        super.clickElement(deleteAccountTextButton);
-
-        waitForAreYouSureText();
-        super.waitForText(submitButtonFromLoginAndLogutIframe, "Yes, delete this account");
-
-        super.clickElement(submitButtonFromLoginAndLogutIframe);
-        super.waitForText(submitButtonFromLoginAndLogutIframe,"OK" );
-        super.clickElement(submitButtonFromLoginAndLogutIframe);
-    }
-
-    public boolean isAccountDeactivated()  {
-        String text = "";
-        String a = "Account Deactivated";
-        String b = "Find Your Account";
-
-        super.placeMouseToElement(areYouSureText);
-        waitForVisibility(areYouSureText);
-        text = areYouSureText.getText();
-
-        return text.contains(a) || text.contains(b);
-    }
-
-     *
-     * It makes the login process and validate that it was successfully.
-     * @param email:String
-     * @param password:String
-     * @return true if the login was successfully, otherwise return false.
-     *
-    public boolean loginProcess(String email, String password) {
-        placeMouseOnUserIcon();
-        clickLoginUserButton();
-        changeToLoginIframe();
-        enterLoginCredentials(email, password);
-        return true;
-    }
-
-    *
-     * It makes the logout process and validate that it was successfully.
-     * @return true if the logout was successfully, otherwise return false.
-     *
-    public void logoutProcess(){
-        placeMouseOnUserIcon();
-        clickLogoutButton();
-        checkUserIsLoggedOut();
-    }
-
-     *
-     * Allows to write email and password for login.
-     * @param email:String
-     * @param password:String
-     *
-    public void enterLoginCredentials(String email, String password){
-        super.typeOnPlaceholder(placeHolderUserName, email);
-        super.typeOnPlaceholder(placeHolderPassword, password);
-        super.clickElement(loginButton);
-    }*/
 }
