@@ -32,7 +32,7 @@ public class EspnWebSteps extends BaseTest {
     /**
      * Verify that the entire process to create an account on the espn website is successful.
      * */
-    @Given("I want to be new user and fill signup form with {string} {string} {string} {string}")
+    @When("I want to be new user and fill signup form with {string} {string} {string} {string}")
     public void iWantToBeNewUserAndFillSignupFormWith(String firstname, String lastname, String email, String password) {
         log.info("Place mouse over icon user avatar");
         home.placeMouseOnUserIcon();
@@ -53,7 +53,6 @@ public class EspnWebSteps extends BaseTest {
         log.info("SignUp button is displayed on login modal");
         Assert.assertTrue(home.isSignUpButtonDisplayed(), "The modal NOT contains SignUp button");
 
-        /// Sign Up
 
         log.info("Click first signup button");
         home.clickSubmitButton();
@@ -99,20 +98,13 @@ public class EspnWebSteps extends BaseTest {
     }*/
 
     /**
-     * Direct the test to espn's watch page.
+     * Direct the test to espn's watch page and validate specified elements are displayed.
      * */
-    @When("I go to ESPN watch page")
+    @Then("I go to ESPN watch page")
     public void iGoToESPNWatchPage() {
         log.info("Go to Watch page");
         home.clickWatchButton();
-    }
 
-    /**
-     * Check if the login modal is present. Then check that the ESPN logo, the login button and the signup button are present.
-     * Finally it close the modal.
-     * */
-    @Then("I can see specified elements")
-    public void iCanSeeSpecifiedElements() {
         log.info("Verify at least one carousel is displayed");
         Assert.assertTrue(watchPage.verifyAtLeastOneCarouselIsDisplayed(), "No carousel is displayed");
 
@@ -125,6 +117,25 @@ public class EspnWebSteps extends BaseTest {
         log.info("Close modal");
         watchPage.clickXButtonFromSupplierModal();
     }
+
+    /**
+     * Check if the login modal is present. Then check that the ESPN logo, the login button and the signup button are present.
+     * Finally it close the modal.
+     * */
+   /* @Then("I can see specified elements")
+    public void iCanSeeSpecifiedElements() {
+        log.info("Verify at least one carousel is displayed");
+        Assert.assertTrue(watchPage.verifyAtLeastOneCarouselIsDisplayed(), "No carousel is displayed");
+
+        log.info("Each card in the carousel has description");
+        Assert.assertTrue(watchPage.checkEachCardInCarouselHasDescription(), "At least one card has NOT description");
+
+        log.info("Verify x button is present in second card from the first carousel");
+        watchPage.isXButtonFromSupplierModalPresent();
+
+        log.info("Close modal");
+        watchPage.clickXButtonFromSupplierModal();
+    }*/
 
     /**
      * Verify that the user can return to the home page from the watch page.
@@ -151,10 +162,7 @@ public class EspnWebSteps extends BaseTest {
     }
 
 
-
-    
-
-   /* @AfterAll
+    /* @AfterAll
     public static void afterAll(){
         tearDown();
     }*/

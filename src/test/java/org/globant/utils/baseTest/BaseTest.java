@@ -24,7 +24,7 @@ public class BaseTest  {
     protected static final String password = "oscar123";*/
 
     /**
-     * Allows you to open a dirver, open the browser, delete cookies and open the ESPN site in full screen mode.
+     * Allows you to open a driver, open the browser, delete cookies and open the ESPN site in full screen mode.
      * */
     protected static void testSetup(String url) {
         driver = new Driver();

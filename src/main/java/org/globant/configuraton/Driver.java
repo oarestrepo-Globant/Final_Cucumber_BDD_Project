@@ -19,7 +19,6 @@ public class Driver {
         webDriver = new ChromeDriver();
     }
 
-    //@Parameters({"url"})
     /**
      * Allows to obtain the driver
      * @return driver

@@ -14,32 +14,43 @@ import java.util.List;
 public class ESPNHomePage extends BaseWebPage{
     @FindBy(id="global-viewport")
     private WebElement homePageView;
+
     @FindBy(id ="global-user-trigger")
     private WebElement userIcon;
+
     @FindBy(id ="oneid-iframe")
     private WebElement loginUserIFrame;
+
     @FindBy(id="logo")
     private WebElement espnLogo;
+
     @FindBy(css="button#BtnSubmit")
     private WebElement loginButton;
+
     @FindBy(css = "button#BtnCreateAccount")
     private WebElement signUpButton;
-    @FindBy(css="li.user div.global-user-container ul.account-management li:last-child > a")
+
+    @FindBy(css="a[data-affiliatename=\"espn\"]")
     private WebElement loginUserButton;
+
+
     @FindBy(css="input#InputLoginValue")
     private WebElement placeHolderUserName;
+
+
     @FindBy(css="input#InputPassword")
     private WebElement placeHolderPassword;
-    @FindBy(css="li.user > div > div > ul.account-management > li.display-user > span")
+
+    @FindBy(css="li.display-user span")
     private WebElement userNameInNavText;
 
-    @FindBy(css="li.user > div > div > ul.account-management > li.display-user > span")
+    @FindBy(css="li.display-user span")
     private List<WebElement> userNameInNavTextList;
 
     @FindBy(css="li.pillar.watch > a")
     private WebElement watchButton;
 
-    @FindBy(css="ul > li.user > div > div > ul.account-management > li:nth-child(9) > a")
+    @FindBy(className="small")
     private WebElement logoutButton;
 
     @FindBy(css="ul .account-management >li > a[tref='/members/v3_1/modifyAccount']")
@@ -262,9 +273,8 @@ public class ESPNHomePage extends BaseWebPage{
         super.placeMouseToElement(userIcon);
         return userNameInNavTextList.size() == 0;
     }
-
-
 /*
+
     public void waitForAreYouSureText(){
         super.waitForVisibility(areYouSureText);
     }
@@ -297,37 +307,37 @@ public class ESPNHomePage extends BaseWebPage{
         text = areYouSureText.getText();
 
         return text.contains(a) || text.contains(b);
-    }*/
+    }
 
-    /* *//**
+     *
      * It makes the login process and validate that it was successfully.
      * @param email:String
      * @param password:String
      * @return true if the login was successfully, otherwise return false.
-     * *//*
+     *
     public boolean loginProcess(String email, String password) {
-      *//*  placeMouseOnUserIcon();
+        placeMouseOnUserIcon();
         clickLoginUserButton();
-        changeToLoginIframe();*//*
+        changeToLoginIframe();
         enterLoginCredentials(email, password);
         return true;
-    }*/
+    }
 
-  /*  *//**
+    *
      * It makes the logout process and validate that it was successfully.
      * @return true if the logout was successfully, otherwise return false.
-     * *//*
+     *
     public void logoutProcess(){
         placeMouseOnUserIcon();
         clickLogoutButton();
         checkUserIsLoggedOut();
-    }*/
+    }
 
-    /* *//**
+     *
      * Allows to write email and password for login.
      * @param email:String
      * @param password:String
-     * *//*
+     *
     public void enterLoginCredentials(String email, String password){
         super.typeOnPlaceholder(placeHolderUserName, email);
         super.typeOnPlaceholder(placeHolderPassword, password);
