@@ -1,4 +1,4 @@
-package org.globant.configuraton;
+package org.globant.configuration;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
@@ -19,7 +19,6 @@ public class Driver {
         webDriver = new ChromeDriver();
     }
 
-    //@Parameters({"url"})
     /**
      * Allows to obtain the driver
      * @return driver

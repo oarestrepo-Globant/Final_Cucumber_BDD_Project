@@ -1,9 +1,6 @@
 package org.globant.testing.stepDefinitions;
 
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
+import io.cucumber.java.en.*;
 import org.globant.utils.baseTest.BaseTest;
 import org.testng.Assert;
 
@@ -24,25 +21,21 @@ public class EspnWebSteps extends BaseTest {
      * This method lifts the driver, performs the initial configurations
      * and allows you to open the browser and access the ESPN website.
      * */
-    @Given("Open browser and enter ESPN url")
-    public void openBrowserAndEnterESPNUrl() {
+    @Given("I go to ESPN page")
+    public void iGoToESPNPage() {
         testSetup(url);
     }
 
     /**
-     * Allows to create an account in the ESPN webpage
+     * Verify that the entire process to create an account on the espn website is successful.
      * */
-    @Given("I am a valid espn user")
-    public void iAmAValidEspnUser() {
+    @When("I want to be new user and fill signup form with {string} {string} {string} {string}")
+    public void iWantToBeNewUserAndFillSignupFormWith(String firstname, String lastname, String email, String password) {
         log.info("Place mouse over icon user avatar");
         home.placeMouseOnUserIcon();
 
-        // ANTES DE ESTE METODO VA EL SIGNUP, POR LO QUE EL clickLogin se eliminaria
-
         log.info("Click on login button");
         home.clickLoginUserButton();
-
-        //home.changeToLoginIframe();
 
         log.info("Login modal is present");
         Assert.assertTrue(home.isModalLoginDisplayed(), "Modal is NOT present");
@@ -57,65 +50,69 @@ public class EspnWebSteps extends BaseTest {
         log.info("SignUp button is displayed on login modal");
         Assert.assertTrue(home.isSignUpButtonDisplayed(), "The modal NOT contains SignUp button");
 
-        //ARRIBA DE ESTA LINEA VA EL SIGNUP. Se eliminaria el login process
-        home.loginProcess(email, password);
+        log.info("Click first signup button");
+        home.clickSubmitButton();
+
+        log.info("Specified elements from SignUp modal are displayed");
+        Assert.assertTrue(home.checkIfAllElementsFromSingUpModalAreDisplayed(), "Not all elements are displayed");
+
+        log.info("Fill signup form and create account");
+        home.fillSignUpFormAndCreateAccount(firstname,  lastname,  email, password);
     }
 
     /**
-     *Allows to navigate to the Watch page on the ESPN website.
+     * Navigate to espn's watch page.
      * */
-    @When("I go to ESPN watch page")
-    public void iGoToESPNWatchPage() {
+    @And("I navigate to the Watch page")
+    public void iNavigateToTheWatchPage() {
         log.info("Go to Watch page");
         home.clickWatchButton();
     }
 
     /**
-     * Check if the login modal is present. Then check that the ESPN logo, the login button and the signup button are present.
-     * Finally it close the modal.
+     * Verify that specified elements are displayed on watch page.
      * */
-    @Then("I can see specified elements")
-    public void iCanSeeSpecifiedElements() {
+    @Then("I should see the carousel")
+    public void iShouldSeeTheCarousel() {
         log.info("Verify at least one carousel is displayed");
         Assert.assertTrue(watchPage.verifyAtLeastOneCarouselIsDisplayed(), "No carousel is displayed");
 
-        log.info("Each card in the carousel has description");
+        log.info("Each card in the second carousel has title and description");
         Assert.assertTrue(watchPage.checkEachCardInCarouselHasDescription(), "At least one card has NOT description");
+    }
 
+    /**
+     * Go to the previous page (home page) and click on the logout button.
+     * */
+    @But("I logout from my ESPN account")
+    public void iLogoutFromMyESPNAccount() {
         log.info("Verify x button is present in second card from the first carousel");
         watchPage.isXButtonFromSupplierModalPresent();
 
         log.info("Close modal");
         watchPage.clickXButtonFromSupplierModal();
-    }
 
-    /**
-     * Allows to go back into previous page.
-     * */
-    @And("I can go back to the ESPN landing page")
-    public void iCanGoBackToTheESPNLandingPage() {
         log.info("Back to home page");
         watchPage.backToHomePage();
 
         log.info("Verify home page is displayed");
         Assert.assertEquals(home.getUsernameLogged(), "Oscar!");
+
+        log.info("Doing Log out");
+        home.clickLogoutButton();
     }
 
     /**
-     * Allows the user to be logged out and check it has a successfully logout process.
+     * Check if the user had a successfully logout and is on the espn main page.
      * */
-    @And("I can logout from my ESPN account")
-    public void iCanLogoutFromMyESPNAccount() {
-        log.info("Doing Log out");
-        home.clickLogoutButton();
-
+    @Then("I should return to the main page")
+    public void iShouldReturnToTheMainPage() {
         log.info("Logout successfully");
         Assert.assertTrue(home.checkUserIsLoggedOut(),"Unsuccessfully logout");
     }
 
-   /* @AfterAll
+    /* @AfterAll
     public static void afterAll(){
         tearDown();
     }*/
-
 }

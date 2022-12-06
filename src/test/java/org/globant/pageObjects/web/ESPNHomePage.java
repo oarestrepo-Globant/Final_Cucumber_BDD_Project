@@ -14,51 +14,166 @@ import java.util.List;
 public class ESPNHomePage extends BaseWebPage{
     @FindBy(id="global-viewport")
     private WebElement homePageView;
+
     @FindBy(id ="global-user-trigger")
     private WebElement userIcon;
+
     @FindBy(id ="oneid-iframe")
     private WebElement loginUserIFrame;
+
     @FindBy(id="logo")
     private WebElement espnLogo;
+
     @FindBy(css="button#BtnSubmit")
     private WebElement loginButton;
+
     @FindBy(css = "button#BtnCreateAccount")
     private WebElement signUpButton;
-    @FindBy(css="li.user div.global-user-container ul.account-management li:last-child > a")
+
+    @FindBy(css="a[data-affiliatename=\"espn\"]")
     private WebElement loginUserButton;
+
+
     @FindBy(css="input#InputLoginValue")
     private WebElement placeHolderUserName;
+
+
     @FindBy(css="input#InputPassword")
     private WebElement placeHolderPassword;
-    @FindBy(css="li.user > div > div > ul.account-management > li.display-user > span")
+
+    @FindBy(css="li.display-user span")
     private WebElement userNameInNavText;
 
-    @FindBy(css="li.user > div > div > ul.account-management > li.display-user > span")
+    @FindBy(css="li.display-user span")
     private List<WebElement> userNameInNavTextList;
 
     @FindBy(css="li.pillar.watch > a")
     private WebElement watchButton;
 
-    @FindBy(css="ul > li.user > div > div > ul.account-management > li:nth-child(9) > a")
+    @FindBy(className="small")
     private WebElement logoutButton;
 
     @FindBy(css="ul .account-management >li > a[tref='/members/v3_1/modifyAccount']")
     private WebElement espnProfileButton;
 
-    @FindBy(css="a[id='AccountDeleteLink']")
-    private WebElement deleteAccountTextButton;
+    @FindBy(css="h2#Title")
+    private WebElement signupTitle;
 
-    @FindBy(css="button#BtnSubmit")
-    private WebElement yesDeleteAccountButton;
+    @FindBy(id="InputFirstName")
+    private WebElement signupFirstNamePlaceHolder;
 
-    @FindBy(id="#BtnSubmit")
-    private WebElement okButtonFromDeleteAccount;
+    @FindBy(id="InputLastName")
+    private WebElement signupLastNamePlaceHolder;
 
-    @FindBy(css=".form-section > #BtnSubmit")
-    private WebElement submitButtonFromLoginAndLogutIframe;
+    @FindBy(id="InputEmail")
+    private WebElement signupEmailPlaceHolder;
 
-    @FindBy(css="#Title > span")
-    private WebElement areYouSureText;
+    @FindBy(id="password-new")
+    private WebElement signupPasswordPlaceHolder;
+
+    @FindBy(id="BtnSubmit")
+    private WebElement signUpButtonFromModal;
+
+    @FindBy(css="button[id=\"close\"]")
+    private WebElement signupXCloseButton;
+
+
+    /**
+     * Allows to click on signup button.
+     * */
+    public void clickSubmitButton() {
+        super.clickElement(signUpButton);
+    }
+
+    /**
+     * Allows you to locate the elements of the signup form
+     * and then fill out the necessary information to create an account on the ESPN website.
+     * */
+    public void fillSignUpFormAndCreateAccount(String firstname, String lastname, String email, String password){
+        super.typeOnPlaceholder(signupFirstNamePlaceHolder, firstname);
+        super.typeOnPlaceholder(signupLastNamePlaceHolder,  lastname);
+        super.typeOnPlaceholder(signupEmailPlaceHolder, email);
+        super.typeOnPlaceholder(signupPasswordPlaceHolder, password);
+        super.scrollDownPage();
+        super.clickElement(signUpButtonFromModal);
+    }
+
+    /**
+     * Allows to check if ‘Sign Up’ title is displayed.
+     * @return true if it is displayed, false otherwise.
+     * */
+    public boolean checkIfSignUpTitleIsDisplayed() {
+       return signupTitle.isDisplayed();
+    }
+
+    /**
+     * Allows to check if ‘First Name’ input is displayed.
+     * @return true if it is displayed, otherwise return false.
+     * */
+    public boolean checkIfFirstNameInputIsDisplayed() {
+        return signupFirstNamePlaceHolder.isDisplayed();
+    }
+
+    /**
+     * Allows to check if ‘Last Name’ input is displayed.
+     * @return true if it is displayed, otherwise return false.
+     * */
+    public boolean checkIfLastNameInputIsDisplayed() {
+        return signupLastNamePlaceHolder.isDisplayed();
+    }
+
+    /**
+     * Allows to check if ‘Email’ input is displayed.
+     * @return true if it is displayed, otherwise return false.
+     * */
+    public boolean checkIfEmailInputIsDisplayed() {
+        return signupEmailPlaceHolder.isDisplayed();
+    }
+
+    /**
+     * Allows to check if ‘Password’ input is displayed.
+     * @return true if it is displayed, otherwise return false.
+     * */
+    public boolean checkIfPasswordInputIsDisplayed() {
+        return signupPasswordPlaceHolder.isDisplayed();
+    }
+
+    /**
+     * Allows to check if ‘Sign Up’ button is displayed.
+     * @return true if it is displayed, otherwise return false.
+     * */
+    public boolean checkIfSignUpButtonIsDisplayed() {
+        return signUpButtonFromModal.isDisplayed();
+    }
+
+    /**
+     * Allows to check if ‘X’ close button is displayed.
+     * @return true if it is displayed, otherwise return false.
+     * */
+    public boolean checkIfXCloseButtonIsDisplayed() {
+        return signupXCloseButton.isDisplayed();
+    }
+
+    /**
+     * Allows to verify if all specified elements are displayed.
+     *      a. ‘Sign Up’ title is present
+     *      b. ‘First Name’ input is present
+     *      c. ‘Last name’ input is present
+     *      d. ‘Email’ input is present
+     *      e. ‘Password’ input is present
+     *      f. ‘Sign Up’ button
+     *      g. 'X' close button
+     * @return true if all elements are displayed, otherwise return false.
+     * */
+    public boolean checkIfAllElementsFromSingUpModalAreDisplayed() {
+        return checkIfSignUpTitleIsDisplayed() &&
+                checkIfFirstNameInputIsDisplayed() &&
+                checkIfLastNameInputIsDisplayed() &&
+                checkIfEmailInputIsDisplayed() &&
+                checkIfPasswordInputIsDisplayed() &&
+                checkIfSignUpButtonIsDisplayed() &&
+                checkIfXCloseButtonIsDisplayed();
+    }
 
     /**
      * Constructor method for ESPNHomePage class.
@@ -108,10 +223,6 @@ public class ESPNHomePage extends BaseWebPage{
         return loginButton.isDisplayed();
     }
 
-   /* public boolean isModalEelementsDisplayed(){
-        return isEspnLogoDisplayed() && isSignUpButtonDisplayed() && isLoginIsDisplayed();
-    }*/
-
     /**
      * Allows you to switch to the login iframe.
      * */
@@ -120,25 +231,14 @@ public class ESPNHomePage extends BaseWebPage{
     }
 
     /**
-     *Allows you to click on the login button
+     *Allows you to click on the login button.
      * */
     public void clickLoginUserButton(){
         super.clickElement(loginUserButton);
     }
 
     /**
-     * Allows to write email and password for login.
-     * @param email:String
-     * @param password:String
-     * */
-    public void enterLoginCredentials(String email, String password){
-        super.typeOnPlaceholder(placeHolderUserName, email);
-        super.typeOnPlaceholder(placeHolderPassword, password);
-        super.clickElement(loginButton);
-    }
-
-    /**
-     * Allows you to obtain the user name displayed in the user panel.
+     * Allows you to obtain the username displayed in the user panel.
      * */
     public String getUsernameLogged() {
         super.placeMouseToElement(userIcon);
@@ -169,62 +269,4 @@ public class ESPNHomePage extends BaseWebPage{
         super.placeMouseToElement(userIcon);
         return userNameInNavTextList.size() == 0;
     }
-
-    /**
-     * It makes the login process and validate that it was successfully.
-     * @param email:String
-     * @param password:String
-     * @return true if the login was successfully, otherwise return false.
-     * */
-    public boolean loginProcess(String email, String password) {
-      /*  placeMouseOnUserIcon();
-        clickLoginUserButton();
-        changeToLoginIframe();*/
-        enterLoginCredentials(email, password);
-        return true;
-    }
-
-    /**
-     * It makes the logout process and validate that it was successfully.
-     * @return true if the logout was successfully, otherwise return false.
-     * */
-    public void logoutProcess(){
-        placeMouseOnUserIcon();
-        clickLogoutButton();
-        checkUserIsLoggedOut();
-    }
-/*
-    public void waitForAreYouSureText(){
-        super.waitForVisibility(areYouSureText);
-    }
-
-    //FACTORIZAR
-    public void deactivate()  {
-        placeMouseOnUserIcon();
-        super.clickElement(espnProfileButton);
-        changeToLoginIframe();
-        super.waitForVisibility(deleteAccountTextButton);
-        super.scrollDownPage();
-        super.placeMouseToElement(deleteAccountTextButton);
-        super.clickElement(deleteAccountTextButton);
-
-        waitForAreYouSureText();
-        super.waitForText(submitButtonFromLoginAndLogutIframe, "Yes, delete this account");
-
-        super.clickElement(submitButtonFromLoginAndLogutIframe);
-        super.waitForText(submitButtonFromLoginAndLogutIframe,"OK" );
-        super.clickElement(submitButtonFromLoginAndLogutIframe);
-    }
-
-    public boolean isAccountDeactivated()  {
-        String text = "";
-        String a = "Account Deactivated";
-        String b = "Find Your Account";
-
-        super.placeMouseToElement(areYouSureText);
-        waitForVisibility(areYouSureText);
-        text = areYouSureText.getText();
-
-        return text.contains(a) || text.contains(b);
-    }*/
 }

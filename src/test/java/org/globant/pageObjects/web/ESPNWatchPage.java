@@ -26,6 +26,12 @@ public class ESPNWatchPage extends BaseWebPage {
     @FindBy(css= "div.Carousel__Wrapper--canScrollRight li")
     private List<WebElement> listOfCardsFromFirstCarousel;
 
+    @FindBy(css= "h2.WatchTile__Title")
+    private WebElement titleOfCardFromCarousel;
+
+    @FindBy(css ="div.WatchTile__Meta")
+    private WebElement descriptionOfCardFromCarousel;
+
     /**
      * Constructor method for ESPNWatchPage class.
      * @param driver:WebDriver
@@ -75,6 +81,8 @@ public class ESPNWatchPage extends BaseWebPage {
         return new ESPNHomePage(getDriver());
     }
 
+
+
     /**
      * Verify if each card in the carousel has a title and a small description about streaming source.
      * @return true if each card in the carousel has a title and a small description, otherwise return false.
@@ -84,11 +92,11 @@ public class ESPNWatchPage extends BaseWebPage {
         List<WebElement> cardsWithSrcDescriptionList = new ArrayList<>();
 
         listOfCardsFromFirstCarousel.forEach(element ->{
-            cardsWithTitleList.add(element.findElement(By.cssSelector("h2.WatchTile__Title")));
+            cardsWithTitleList.add(titleOfCardFromCarousel);
         });
 
         listOfCardsFromFirstCarousel.forEach(element ->{
-            cardsWithSrcDescriptionList.add(element.findElement(By.cssSelector("div.WatchTile__Meta")));
+            cardsWithSrcDescriptionList.add(descriptionOfCardFromCarousel);
         });
 
         return cardsWithTitleList.size() == listOfCardsFromFirstCarousel.size() || cardsWithSrcDescriptionList.size() == listOfCardsFromFirstCarousel.size();

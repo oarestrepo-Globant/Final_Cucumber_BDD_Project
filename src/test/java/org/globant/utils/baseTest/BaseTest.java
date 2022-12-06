@@ -1,7 +1,7 @@
 package org.globant.utils.baseTest;
 
 import org.apache.log4j.Logger;
-import org.globant.configuraton.Driver;
+import org.globant.configuration.Driver;
 import org.globant.pageObjects.web.ESPNHomePage;
 import org.globant.pageObjects.web.ESPNWatchPage;
 
@@ -20,11 +20,11 @@ public class BaseTest  {
     protected static ESPNWatchPage watchPage;
     public static Logger log = Logger.getLogger(BaseTest.class);
 
-    protected static final String email = "test.espn@test.com";
-    protected static final String password = "oscar123";
+    /*protected static final String email = "test.espn@test.com";
+    protected static final String password = "oscar123";*/
 
     /**
-     * Allows you to open a dirver, open the browser, delete cookies and open the ESPN site in full screen mode.
+     * Allows you to open a driver, open the browser, delete cookies and open the ESPN site in full screen mode.
      * */
     protected static void testSetup(String url) {
         driver = new Driver();

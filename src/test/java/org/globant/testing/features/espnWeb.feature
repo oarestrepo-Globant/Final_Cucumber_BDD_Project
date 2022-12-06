@@ -4,12 +4,15 @@ Feature: Espn web navigation
   As a verified user of the espn website
   I want to successfully log in, navigate through the different pages
 
-  Background:
-    Given Open browser and enter ESPN url
+  @web @espn @espnNavigation
+  Scenario Outline: As a user, I able to navigate to the Watch page
+    Given I go to ESPN page
+    When I want to be new user and fill signup form with <firstname> <lastname> <email> <password>
+    And I navigate to the Watch page
+    Then I should see the carousel
+    But I logout from my ESPN account
+    Then I should return to the main page
 
-    Scenario: As a logged in user, I want to navigate through ESPN Home page and Watch page
-    Given I am a valid espn user
-    When I go to ESPN watch page
-    Then I can see specified elements
-    And I can go back to the ESPN landing page
-    And I can logout from my ESPN account
+    Examples:
+      | firstname | lastname   | email                | password           |
+      | "Oscar"   | "Restrepo" | "13@pruebaoscar.com" | "password123*polo" |
