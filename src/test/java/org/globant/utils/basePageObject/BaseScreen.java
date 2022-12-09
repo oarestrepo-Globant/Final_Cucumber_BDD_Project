@@ -10,47 +10,39 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.util.List;
 
+import static org.openqa.selenium.support.PageFactory.initElements;
+
 /**
  * Base class for all screens Objects.
  *
- * @author Arley.Bolivar
  */
 public abstract class BaseScreen {
 
-    /**
-     * The driver.
-     */
     protected final AndroidDriver<AndroidElement> mobileDriver;
 
-    /**
-     * The log.
-     */
     public Logger log = Logger.getLogger(BaseScreen.class);
 
     /**
      * Constructor method for standard screens object.
      *
      * @param driver : AndroidDriver
-     * @author Arley.Bolivar, Hans.Marquez
      */
     public BaseScreen(AndroidDriver<AndroidElement> driver) {
         this.mobileDriver = driver;
-     PageFactory.initElements(new AppiumFieldDecorator(
-                driver, Duration.ofSeconds(0)), this);
+     initElements(new AppiumFieldDecorator(
+                driver, Duration.ofSeconds(10)), this);
     }
 
     /**
      * Wrapper for click event.
      *
      * @param element : AndroidElement
-     * @author Hans.Marquez
      */
     public void click(AndroidElement element) {
         WebDriverWait wait = new WebDriverWait(mobileDriver, 20);
@@ -62,7 +54,7 @@ public abstract class BaseScreen {
      * Wrapper for Visibility event.
      *
      * @param element : AndroidElement
-     * @author Hans.Marquez
+     * @return true if element is displayed,  otherwise return false.
      */
     public boolean isElementAvailable(AndroidElement element) {
         WebDriverWait wait = new WebDriverWait(mobileDriver, 3);
@@ -79,6 +71,8 @@ public abstract class BaseScreen {
      *
      * @param element : AndroidElement
      * @param timeout : int
+     *
+     * @return  true if element is displayed,  otherwise return false.
      */
     public boolean isElementAvailable(AndroidElement element, int timeout) {
         WebDriverWait wait = new WebDriverWait(mobileDriver, timeout);
@@ -94,7 +88,8 @@ public abstract class BaseScreen {
      * Wrapper for Visibility event.
      *
      * @param listOfElements : List
-     * @author oscar.restrepo
+     *
+     * @return true if element is displayed,  otherwise return false.
      */
     public boolean isElementAvailable(List listOfElements) {
         WebDriverWait wait = new WebDriverWait(mobileDriver, 10);
@@ -109,7 +104,7 @@ public abstract class BaseScreen {
     /**
      * Wrapper for vertical swipe event.
      *
-     * @author oscar.restrepo
+     *
      */
     public void verticalSwipeEvent() {
         Dimension dim = mobileDriver.manage().window().getSize();
@@ -134,7 +129,7 @@ public abstract class BaseScreen {
      * @param stringsList : List<String>
      * @param elementList : List<AndroidElement>
      *
-     * @author oscar.restrepo
+     * @return amount of options displayed.
      */
     public int getOptionsAmount(List<String> stringsList, List<AndroidElement> elementList) {
         int optionsValidatedAmount = 0;

@@ -12,7 +12,7 @@ import static org.globant.utils.configuration.mobile.MobileDriverConfig.getMobil
 
 
 /**
- * Menu screen.
+ * Class for Menu screen.
  *
  * @author oscar.restrepo
  */
@@ -30,23 +30,22 @@ public class MenuScreen extends BaseScreen {
     /**
      * Constructor method.
      *
-     * @param driver : AndroidDriver
-     * @author oscar.restrepo
-     */
+     * @param driver : AndroidDriver<AndroidElement>
+     *
+     * */
     public MenuScreen(AndroidDriver<AndroidElement> driver) {
         super(driver);
     }
 
     /**
-     * @author oscar.restrepo
-     * return true if 6 options are displayed, otherwise return false.
+     * Allows to obtain the number of visible options.
+     * @return amount of options displayed
      */
     public int getOptionsAmount(){
         return menuOptions.size();
     }
 
     /**
-     * @author oscar.restrepo
      * it scrolls down until screen bottom.
      */
     public void swipeScreenBottom(){
@@ -59,8 +58,8 @@ public class MenuScreen extends BaseScreen {
     }
 
     /**
-     * @author oscar.restrepo
      * Evaluates the displayed categories versus the desired ones and returns the number of matches.
+     * @return amount of categories displayed
      */
     public int getAmountOfCategoriesListed(){
         String category_1 = "My Profile";
@@ -76,9 +75,8 @@ public class MenuScreen extends BaseScreen {
     }
 
     /**
-     * @return
-     * @author oscar.restrepo
      * click on Privacy & Legal button and return new PrivacyLegalScreen.
+     * @return PrivacyLegalScreen
      */
     public PrivacyLegalScreen goToPrivacyLegalScreen(){
         click(privacyLegalLinkText);

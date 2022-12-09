@@ -132,7 +132,7 @@ public class BaseWebPage  {
      * @param element: WebElement
      * @param text:String
      * @return true if the text is visible on the element, otherwise returns false
-     * *//*
+     *
     public boolean waitForText(WebElement element, String text){
         return  wait.until(ExpectedConditions.textToBePresentInElement(element, text));
     }*/

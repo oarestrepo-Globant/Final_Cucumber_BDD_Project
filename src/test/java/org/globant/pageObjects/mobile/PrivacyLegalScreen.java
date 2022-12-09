@@ -9,9 +9,8 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Privacy & Legal screen.
+ * Class for Privacy & Legal screen.
  *
- * @author oscar.restrepo
  */
 public class PrivacyLegalScreen extends BaseScreen {
 
@@ -22,15 +21,15 @@ public class PrivacyLegalScreen extends BaseScreen {
      * Constructor method.
      *
      * @param driver : AndroidDriver
-     * @author oscar.restrepo
      */
     public PrivacyLegalScreen(AndroidDriver<AndroidElement> driver) {
         super(driver);
     }
 
     /**
-     * @author oscar.restrepo
+     *
      * Evaluates the displayed options versus the desired ones and returns the number of matches.
+     * @return list of options displayed.
      */
     public int getAmountOfLegalOptionsListed(){
         String option_1 = "Privacy Policy";
