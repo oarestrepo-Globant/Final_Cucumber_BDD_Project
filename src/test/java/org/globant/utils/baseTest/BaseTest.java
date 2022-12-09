@@ -1,7 +1,7 @@
 package org.globant.utils.baseTest;
 
 import org.apache.log4j.Logger;
-import org.globant.configuration.WebDriverConfig;
+import org.globant.utils.configuration.web.WebDriverConfig;
 import org.globant.pageObjects.web.ESPNHomePage;
 import org.globant.pageObjects.web.ESPNWatchPage;
 
@@ -14,7 +14,7 @@ import static java.lang.String.format;
  * It defines  driver, home Page and Watch page as a static attribute.
  * */
 public class BaseTest  {
-    protected static WebDriverConfig driver;
+    protected static WebDriverConfig driverWeb;
     protected static ESPNHomePage home;
     protected static ESPNWatchPage watchPage;
     private static String url = "https://www.espnqa.com/?src=com&_adblock=true&espn=cloud";
@@ -23,12 +23,12 @@ public class BaseTest  {
     /**
      * Allows you to open a driver, open the browser and delete cookies.
      * */
-    protected static void testSetup() {
-        driver = new WebDriverConfig();
+    protected static void webTestSetup() {
+        driverWeb = new WebDriverConfig();
         log.info("Deleting all cookies");
-        driver.deleteCookies();
-        home = new ESPNHomePage(driver.getDriver());
-        watchPage = new ESPNWatchPage(driver.getDriver());
+        driverWeb.deleteCookies();
+        home = new ESPNHomePage(driverWeb.getDriver());
+        watchPage = new ESPNWatchPage(driverWeb.getDriver());
     }
 
     /**
@@ -36,14 +36,14 @@ public class BaseTest  {
      * */
     public void goToEspnPage() {
         log.info(format("Navigating to %s", this.url));
-        driver.getUrl(this.url);
-        driver.maximizeWindow();
+        driverWeb.getUrl(this.url);
+        driverWeb.maximizeWindow();
     }
 
     /**
      * Allows to close the browser
      * */
     protected static void tearDown(){
-        driver.closeBrowser();
+        driverWeb.closeBrowser();
     }
 }

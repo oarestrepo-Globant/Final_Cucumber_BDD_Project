@@ -7,7 +7,6 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
 import java.util.List;
 
 import static org.openqa.selenium.support.PageFactory.initElements;
@@ -30,7 +29,7 @@ public class BaseWebPage  {
      * */
     public BaseWebPage(WebDriver driver){
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(15L));
+        this.wait = new WebDriverWait(driver, 15L);
         this.action = new Actions(driver);
         initElements(driver, this);
     }
@@ -124,7 +123,7 @@ public class BaseWebPage  {
      * */
     public void scrollDownPage(){
         action
-                .scrollByAmount(0, 10000)
+              //  .scrollByAmount(0, 10000)
                 .perform();
     }
 

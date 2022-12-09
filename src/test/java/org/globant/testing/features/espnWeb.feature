@@ -14,5 +14,5 @@ Feature: Espn web navigation
     Then I should return to the main page
 
     Examples:
-      | firstname | lastname   | email                | password           |
-      | "Oscar"   | "Restrepo" | "29@pruebaoscar.com" | "password123*polo" |
+      | firstname | lastname   | email               | password           |
+      | "Oscar"   | "Restrepo" | "16@pruebaosca.com" | "password123*polo" |

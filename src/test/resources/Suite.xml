@@ -11,7 +11,7 @@
     &lt;!&ndash;<test name="Web and Mobile Test">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="org.globant.runners.RunCucumberTest"/>
+            <class name="org.globant.runners.RunCucumberWebTestest"/>
         </classes>
     </test>&ndash;&gt;
 </suite>-->
