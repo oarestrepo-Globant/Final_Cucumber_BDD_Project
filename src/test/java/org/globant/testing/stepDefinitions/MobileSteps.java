@@ -83,5 +83,46 @@ public class MobileSteps extends MobileDriverConfig {
         mobileApplicationEnd();
     }
 
+    ////////// PRIVACY & LEGAL //////////
+
+    /**
+     * Allows you to go to the menu screen and validate it is displayed.
+     * */
+    @Given("I am in the Menu screen")
+    public void iAmInTheMenuScreen() {
+        log.info("Tap Dashboard Menu Button");
+        menu = dashBoard.clickMenuButton();
+
+        log.info("Validate Menu view ");
+        Assert.assertEquals(menu.getOptionsAmount(), optionsAmountExpected);
+    }
+
+    /**
+     * Allows to go to the privacy and legal screen.
+     * Validates that all categories are displayed.
+     * */
+    @When("I tap on Privacy & legal")
+    public void iTapOnPrivacyLegal() {
+        log.info("Scroll down menu view");
+        menu.swipeScreenBottom();
+
+        log.info("Validate 7 categories are listed");
+        Assert.assertEquals(menu.getAmountOfCategoriesListed(), categoriesListedAmountExpected);
+
+        log.info("Go to Privacy & Legal screen");
+        privacy = menu.goToPrivacyLegalScreen();
+    }
+
+    /**
+     * Allows to verify that there are 10 options in the privacy and legal screen.
+     * */
+    @Then("I should see a list of options")
+    public void iShouldSeeAListOfOptions() {
+        log.info("Validate list of 10 Legal Options are displayed");
+        Assert.assertEquals(privacy.getAmountOfLegalOptionsListed(), legalOptionsAmountExpected);
+
+        mobileApplicationEnd();
+    }
+
 
 }
