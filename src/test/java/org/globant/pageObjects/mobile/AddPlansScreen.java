@@ -9,9 +9,8 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Add Plans Screen.
+ * Class for Add Plans Screen.
  *
- * @author oscar.restrepo
  */
 public class AddPlansScreen extends BaseScreen {
 
@@ -22,18 +21,18 @@ public class AddPlansScreen extends BaseScreen {
     private AndroidElement reserveDinningOptionText;
 
     /**
-     * Constructor method.
+     * Constructor method for AddPlansScreen class.
      *
      * @param driver : AndroidDriver
-     * @author oscar.restrepo
      */
     public AddPlansScreen(AndroidDriver<AndroidElement> driver) {
         super(driver);
     }
 
     /**
-     * @author oscar.restrepo
-     * Evaluates the displayed options versus the desired ones and returns the number of matches.
+     *
+     * Evaluates the displayed options versus the desired ones.
+     * @return the amount of matches between displayed options versus the desired ones.
      */
     public int getPlanOptionsAmount(){
         String option_1 = "Check Dining Availability";
@@ -49,8 +48,8 @@ public class AddPlansScreen extends BaseScreen {
     }
 
     /**
-     * @author oscar.restrepo
-     * return true if reserve dinning option is enabled in Adds Plans Options, otherwise return false.
+     * allows you to check if the dinning option is visible
+     * @return true it is displayed, otherwise return false.
      */
     public boolean isReserveDiningOptionDisplayed(){
         return isElementAvailable(reserveDinningOptionText);

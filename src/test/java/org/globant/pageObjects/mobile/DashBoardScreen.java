@@ -9,9 +9,8 @@ import static org.globant.utils.configuration.mobile.MobileDriverConfig.getMobil
 
 
 /**
- * DashBoard screen.
+ * Class for DashBoard screen.
  *
- * @author Hans.Marquez
  */
 public class DashBoardScreen extends BaseScreen {
 
@@ -34,7 +33,7 @@ public class DashBoardScreen extends BaseScreen {
      * Constructor method.
      *
      * @param driver : AndroidDriver
-     * @author Hans.Marquez
+     *
      */
     public DashBoardScreen(AndroidDriver<AndroidElement> driver) {
         super(driver);
@@ -42,6 +41,7 @@ public class DashBoardScreen extends BaseScreen {
 
     /**
      * Navigate to Login Screen from DashBoard Screen.
+     * @return MapScreen instance.
      */
     public MapScreen goToMapScreen() {
         click(mapButton);
@@ -49,21 +49,21 @@ public class DashBoardScreen extends BaseScreen {
     }
 
     /**
-     * @author oscar.restrepo
      * dismiss previous alerts before DashBoard Screen is displayed.
      */
     public void dismissActions() {
-        if (this.isElementAvailable(dismissWelcome, 25)){
+        if (this.isElementAvailable(dismissWelcome, 15)){
             click(dismissWelcome);
         }
-        if (this.isElementAvailable(dismissPreferenceUpdateButton, 25)){
+        if (this.isElementAvailable(dismissPreferenceUpdateButton, 15)){
             click(dismissPreferenceUpdateButton);
         }
     }
 
     /**
-     * @author oscar.restrepo
+     *
      * Tap on menu button available in dashboard screen and return PrivacyLegalScreen Object instance.
+     * @return MenuScreen instance.
      */
     public MenuScreen clickMenuButton(){
         click(menuButton);
@@ -71,8 +71,9 @@ public class DashBoardScreen extends BaseScreen {
     }
 
     /**
-     * @author oscar.restrepo
+     *
      * Click on Add Plans Button at bottom of the screen.
+     * @return AddPlanScreen instance.
      */
     public AddPlansScreen clickAddPlansButton(){
         click(addPlanButton);

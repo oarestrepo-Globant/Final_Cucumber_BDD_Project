@@ -14,17 +14,15 @@ import static io.appium.java_client.pagefactory.LocatorGroupStrategy.ALL_POSSIBL
 // TODO: Auto-generated Javadoc
 
 /**
- * Map screen.
+ * Class for Map screen.
  *
- * @author Hans.Marquez
  */
 public class MapScreen extends BaseScreen {
 
     /**
-     * Constructor method.
+     * Constructor method for MapScreen.
      *
      * @param driver the driver
-     * @author Hans.Marquez
      */
     public MapScreen(AndroidDriver<AndroidElement> driver) {
         super(driver);
@@ -56,23 +54,23 @@ public class MapScreen extends BaseScreen {
     private AndroidElement hotelOptionLabel;
 
     /**
-     * @author Hans.Marquez
-     * return true if Category List element is displayed in screen, otherwise false.
+     * Allows you to evaluate whether the list of categories is displayed.
+     * @return true if Category List element is displayed in screen, otherwise false.
      */
     public boolean categoryIsDisplayed() {
         return isElementAvailable(categoryList);
     }
 
     /**
-     * @author Hans.Marquez
-     * return true if Filter Button element is displayed in screen, otherwise false.
+     * Allows you to evaluate whether the filter button is displayed.
+     * @return true if Filter Button element is displayed in screen, otherwise false.
      */
     public boolean filterIsDisplayed() {
         return isElementAvailable(filterButton);
     }
 
     /**
-     * @author Hans.Marquez
+     * Allows you to evaluate whether the show list button is displayed.
      * return true if Show List Button element is displayed in screen, otherwise false.
      */
     public boolean showListIsDisplayed() {
@@ -80,8 +78,10 @@ public class MapScreen extends BaseScreen {
     }
 
     /**
-     * @author oscar.restrepo
-     * return true if different categories are listed to select, otherwise false.
+     * Allows you to evaluate whether the show list button is displayed.
+     * Then allows to click on dropdown category list.
+     *
+     * @return true if different categories are listed to select, otherwise false.
      */
     public void tapCategoryList(){
         super.isElementAvailable(categoryTitle);
@@ -89,8 +89,9 @@ public class MapScreen extends BaseScreen {
     }
 
     /**
-     * @author oscar.restrepo
+     *
      * Evaluates the displayed options versus the desired ones and returns the number of matches.
+     * @return number of matches.
      */
     public int getAmountOfPlansOptions(){
         isElementAvailable(categoryTitle);
@@ -113,8 +114,8 @@ public class MapScreen extends BaseScreen {
     }
 
     /**
-     * @author oscar.restrepo
-     *return true if Hotel Option is displayed in screen, otherwise false.
+     * Allows you to evaluate if the hotel option is displayed.
+     * @return true if Hotel Option is displayed in screen, otherwise false.
      */
     public boolean isHotelOptionLabelAvailable(){
         return isElementAvailable(hotelOptionLabel);

@@ -5,12 +5,12 @@ import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.globant.utils.basePageObject.BaseScreen;
 
-/**
- * Object of the first screen that appears when we open the application.
- *
- * @author Arley.Bolivar
- */
+import static org.globant.utils.configuration.mobile.MobileDriverConfig.getMobileDriver;
 
+/**
+ * Class for Work Flow Screen
+ *
+ */
 public class WorkFlowsScreen extends BaseScreen {
 
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceIdMatches(\".*permission_primary_btn\")")
@@ -28,8 +28,8 @@ public class WorkFlowsScreen extends BaseScreen {
     /**
      * Constructor method.
      *
-     * @param driver the driver
-     * @author Arley.Bolivar
+     * @param driver : AndroidDriver<AndroidElement>
+     *
      */
     public WorkFlowsScreen(AndroidDriver<AndroidElement> driver) {
         super(driver);
@@ -37,22 +37,21 @@ public class WorkFlowsScreen extends BaseScreen {
 
 
     /**
-     * @author Hans.Marquez
-     * Start permissions process.
+     *
+     * Start permissions process by clicking get started button.
      */
     public void startPermissionsProcess() {
-        click(getStartedButton);
+        click(this.getStartedButton);
     }
 
     /**
-     * @author Hans.Marquez
-     * Share Location permissions proccess.
+     * Share Location permissions process.
+     * @return DashBoardScreen
      */
-    //public DashBoardScreen shareLocationPermissions() {
     public DashBoardScreen shareLocationPermissions() {
-        click(shareLocationButton);
-        click(allowLocationButton);
-        click(allowButton);
-        return new DashBoardScreen(mobileDriver);
+       super.click(this.shareLocationButton);
+        super.click(this.allowLocationButton);
+        super.click(this.allowButton);
+        return new DashBoardScreen(getMobileDriver());
     }
 }
