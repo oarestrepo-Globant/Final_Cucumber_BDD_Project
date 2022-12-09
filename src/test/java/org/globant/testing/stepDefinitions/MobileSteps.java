@@ -124,5 +124,29 @@ public class MobileSteps extends MobileDriverConfig {
         mobileApplicationEnd();
     }
 
+////////// ADD PLANS OPTION //////////
 
+    /**
+     * Allows go to the Add Plans screen
+     * */
+    @When("I am in the Add Plans screen")
+    public void iAmInTheAddPlansScreen() {
+        log.info("Tap Add Plans Button in dashboard screen");
+        addPlan = dashBoard.clickAddPlansButton();
+    }
+
+    /**
+     * Allows you to check if all the options are displayed in the Add Plans screen.
+     * */
+    @Then("I should see a list of plans to add")
+    public void iShouldSeeAListOfPlansToAdd() {
+        log.info("Add Plans Option List is shown to the user");
+        Assert.assertEquals(addPlan.getPlanOptionsAmount(), amountPlansOptionExpected);
+
+        log.info("Validate Reserve Dining Option is displayed");
+        Assert.assertTrue(addPlan.isReserveDiningOptionDisplayed(), "Reserve Dining Option is NOT displayed");
+
+
+        mobileApplicationEnd();
+    }
 }
