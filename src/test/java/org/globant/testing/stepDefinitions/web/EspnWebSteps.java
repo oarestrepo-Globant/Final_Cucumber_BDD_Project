@@ -1,6 +1,5 @@
-package org.globant.testing.stepDefinitions;
+package org.globant.testing.stepDefinitions.web;
 
-import io.cucumber.java.Before;
 import io.cucumber.java.en.*;
 import org.globant.utils.baseTest.BaseTest;
 import org.testng.Assert;
@@ -14,11 +13,11 @@ public class EspnWebSteps extends BaseTest {
 
     /**
      * It lifts the driver and the browser before the test
-     * */
+     * *//*
     @Before("@web")
     public static void beforeWeb(){
         webTestSetup();
-    }
+    }*/
 
     /**
      * This method lifts the driver, performs the initial configurations

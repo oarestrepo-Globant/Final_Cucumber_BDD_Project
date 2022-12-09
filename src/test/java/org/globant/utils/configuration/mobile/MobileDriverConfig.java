@@ -39,7 +39,6 @@ public class MobileDriverConfig {
      * SetUp before to run suite of test.
      *
      */
-
     public static void environmentSetUp() {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         ConfigCapabilities.deviceSetUp(capabilities);
@@ -49,7 +48,7 @@ public class MobileDriverConfig {
         } catch (MalformedURLException exception) {
             exception.printStackTrace();
         }
-        setUpStartApp();
+
     }
 
 

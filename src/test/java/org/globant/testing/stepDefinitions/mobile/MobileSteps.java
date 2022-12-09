@@ -1,4 +1,4 @@
-package org.globant.testing.stepDefinitions;
+package org.globant.testing.stepDefinitions.mobile;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -23,19 +23,13 @@ public class MobileSteps extends MobileDriverConfig {
     private PrivacyLegalScreen privacy;
     private AddPlansScreen addPlan;
 
-   /* @Before("@mobile")
-    public static void beforeMobile(){
-        environmentSetUp();
-    }*/
-
     /**
-     * It lifts the driver and starts de disney app.
+     * It starts de disney app.
      * */
     @Given("I am in the main screen")
     public void iAmInTheMainScreen() {
         log.info("Doing SetUp");
-        environmentSetUp();
-        //////////////////////////
+        setUpStartApp();
     }
 
     /**
@@ -79,8 +73,6 @@ public class MobileSteps extends MobileDriverConfig {
 
         log.info("Validate Hotel Option is available");
         Assert.assertTrue(map.isHotelOptionLabelAvailable(), "Hotels Option is not displayed");
-
-        mobileApplicationEnd();
     }
 
     ////////// PRIVACY & LEGAL //////////
@@ -120,8 +112,6 @@ public class MobileSteps extends MobileDriverConfig {
     public void iShouldSeeAListOfOptions() {
         log.info("Validate list of 10 Legal Options are displayed");
         Assert.assertEquals(privacy.getAmountOfLegalOptionsListed(), legalOptionsAmountExpected);
-
-        mobileApplicationEnd();
     }
 
 ////////// ADD PLANS OPTION //////////
@@ -145,8 +135,5 @@ public class MobileSteps extends MobileDriverConfig {
 
         log.info("Validate Reserve Dining Option is displayed");
         Assert.assertTrue(addPlan.isReserveDiningOptionDisplayed(), "Reserve Dining Option is NOT displayed");
-
-
-        mobileApplicationEnd();
     }
 }
