@@ -1,5 +1,6 @@
 package org.globant.testing.stepDefinitions;
 
+import io.cucumber.java.Before;
 import io.cucumber.java.en.*;
 import org.globant.utils.baseTest.BaseTest;
 import org.testng.Assert;
@@ -9,13 +10,15 @@ import org.testng.Assert;
  * This class has methods that represent the step-by-step for the test automation of the espn page.
  * */
 public class EspnWebSteps extends BaseTest {
-    private static String url = "https://www.espnqa.com/?src=com&_adblock=true&espn=cloud";
     private String username = "Oscar!";
 
-    /*@BeforeAll
-    public static void beforeAll(){
-        testSetup(url);
-    }*/
+    /**
+     * It lifts the driver and the browser before the test
+     * */
+    @Before("@web")
+    public static void beforeWeb(){
+        webTestSetup();
+    }
 
     /**
      * This method lifts the driver, performs the initial configurations
@@ -23,7 +26,7 @@ public class EspnWebSteps extends BaseTest {
      * */
     @Given("I go to ESPN page")
     public void iGoToESPNPage() {
-        testSetup(url);
+        goToEspnPage();
     }
 
     /**
@@ -96,7 +99,7 @@ public class EspnWebSteps extends BaseTest {
         watchPage.backToHomePage();
 
         log.info("Verify home page is displayed");
-        Assert.assertEquals(home.getUsernameLogged(), "Oscar!");
+        Assert.assertEquals(home.getUsernameLogged(), username);
 
         log.info("Doing Log out");
         home.clickLogoutButton();
@@ -111,7 +114,10 @@ public class EspnWebSteps extends BaseTest {
         Assert.assertTrue(home.checkUserIsLoggedOut(),"Unsuccessfully logout");
     }
 
-    /* @AfterAll
+    /**
+     * It closes the browser after the test is done.
+     * */
+   /* @AfterAll
     public static void afterAll(){
         tearDown();
     }*/
