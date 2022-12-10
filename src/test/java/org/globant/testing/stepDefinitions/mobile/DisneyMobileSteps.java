@@ -10,6 +10,10 @@ import org.globant.pageObjects.mobile.PrivacyLegalScreen;
 import org.globant.utils.configuration.mobile.MobileDriverConfig;
 import org.testng.Assert;
 
+/**
+ * Class for DisneyMobileSteps.
+ * */
+
 public class DisneyMobileSteps extends MobileDriverConfig {
 
     private final int amountOfPlansOptionsExpected = 11;
@@ -74,7 +78,7 @@ public class DisneyMobileSteps extends MobileDriverConfig {
         Assert.assertTrue(map.isHotelOptionLabelAvailable(), "Hotels Option is not displayed");
     }
 
-    ////////// PRIVACY & LEGAL //////////
+
 
     /**
      * Allows you to go to the menu screen and validate it is displayed.
@@ -85,7 +89,9 @@ public class DisneyMobileSteps extends MobileDriverConfig {
         menu = dashBoard.clickMenuButton();
 
         log.info("Validate Menu view ");
-        Assert.assertEquals(menu.getOptionsAmount(), optionsAmountExpected);
+        log.info(menu.getOptionsAmount());
+        Assert.assertEquals(menu.getOptionsAmount(), optionsAmountExpected,6);
+
     }
 
     /**
@@ -113,7 +119,7 @@ public class DisneyMobileSteps extends MobileDriverConfig {
         Assert.assertEquals(privacy.getAmountOfLegalOptionsListed(), legalOptionsAmountExpected);
     }
 
-////////// ADD PLANS OPTION //////////
+
 
     /**
      * Allows go to the Add Plans screen

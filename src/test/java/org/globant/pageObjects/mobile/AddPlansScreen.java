@@ -3,7 +3,7 @@ package org.globant.pageObjects.mobile;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
-import org.globant.utils.basePageObject.BaseScreen;
+import org.globant.utils.basePageObject.BaseMobileScreen;
 
 import java.util.Arrays;
 import java.util.List;
@@ -12,7 +12,7 @@ import java.util.List;
  * Class for Add Plans Screen.
  *
  */
-public class AddPlansScreen extends BaseScreen {
+public class AddPlansScreen extends BaseMobileScreen {
 
     @AndroidFindBy(id = "actionSheetItemText")
     private List<AndroidElement> plansOptionList;

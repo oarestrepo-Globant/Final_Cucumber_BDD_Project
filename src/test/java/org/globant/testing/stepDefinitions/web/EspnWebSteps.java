@@ -11,13 +11,6 @@ import org.testng.Assert;
 public class EspnWebSteps extends BaseWebTest {
     private String username = "Oscar!";
 
-    /**
-     * It lifts the driver and the browser before the test
-     * *//*
-    @Before("@web")
-    public static void beforeWeb(){
-        webTestSetup();
-    }*/
 
     /**
      * This method lifts the driver, performs the initial configurations
@@ -112,12 +105,4 @@ public class EspnWebSteps extends BaseWebTest {
         log.info("Logout successfully");
         Assert.assertTrue(home.checkUserIsLoggedOut(),"Unsuccessfully logout");
     }
-
-    /**
-     * It closes the browser after the test is done.
-     * */
-   /* @AfterAll
-    public static void afterAll(){
-        tearDown();
-    }*/
 }
