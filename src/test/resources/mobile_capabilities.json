@@ -1,0 +1,12 @@
+{
+	"deviceName": "emulator-5554",
+	"appPackage": "com.disney.wdpro.dlr",
+	"appActivity": "com.disney.wdpro.park.activities.SplashActivity",
+	"platformName": "Android",
+	"platformVersion": "11",
+	"app": "C:\\Users\\oscar.restrepo\\Desktop\\Globant - OOP\\TAE\\Mobile Automation\\Final\\DisneylandÂ®_7.17_Apkpure.apk",
+	"automationName": "UiAutomator2",
+	"autoGrantPermissions": "true",
+	"skipServerInstallation": "true"
+}
+

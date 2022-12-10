@@ -1,21 +1,18 @@
 Feature: Espn web navigation
 
-  In order to verify the process of login, logout, signup and navigation between pages of the ESPN website
+  In order to verify the process of signup, logout and navigation between pages of the ESPN website
   As a verified user of the espn website
   I want to successfully log in, navigate through the different pages
 
-  Background:
-    Given Open browser and enter ESPN url
+  @web @espn @espnNavigation
+  Scenario Outline: As a user, I able to navigate to the Watch page
+    Given I go to ESPN page
+    When I want to be new user and fill signup form with <firstname> <lastname> <email> <password>
+    And I navigate to the Watch page
+    Then I should see the carousel
+    But I logout from my ESPN account
+    Then I should return to the main page
 
- #1-4
-  Scenario: Verify modal is present and contains specified elements
-    Given I place mouse over the icon user avatar
-    When I click  login button
-    Then Modal is present and contains specified elements
-
-  #5-10  @loginNeeded
-  Scenario: Navigate to Watch page and log out
-    Given As a logged user go the Watch page
-    Then I can see specified elements
-    And I can go back to the landing page
-    And I can log out
+    Examples:
+      | firstname | lastname   | email                   | password           |
+      | "Oscar"   | "Restrepo" | "7@pruebaoscarespn.com" | "password123*polo" |
