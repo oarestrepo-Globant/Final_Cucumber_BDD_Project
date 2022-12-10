@@ -14,7 +14,7 @@ import static org.globant.utils.configuration.mobile.MobileDriverConfig.getMobil
  */
 public class DashBoardScreen extends BaseScreen {
 
-    @AndroidFindBy(uiAutomator = "new UiSelector().resourceIdMatches(\".*android:id/button2\")")
+    @AndroidFindBy(id = "android:id/button2")
     private AndroidElement dismissPreferenceUpdateButton;
 
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"dismiss-icon\")")
@@ -26,7 +26,7 @@ public class DashBoardScreen extends BaseScreen {
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceIdMatches( \".*tab_icon\").descriptionContains(\"More Options, Tab, 5of5\")")
     private AndroidElement menuButton;
 
-    @AndroidFindBy(uiAutomator = "new UiSelector().resourceIdMatches(\".*tab_animated_icon\")")
+    @AndroidFindBy(id = "tab_animated_icon")
     private AndroidElement addPlanButton;
 
     /**

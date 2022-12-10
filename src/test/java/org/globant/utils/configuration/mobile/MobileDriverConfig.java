@@ -2,10 +2,10 @@ package org.globant.utils.configuration.mobile;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
+import org.apache.log4j.Logger;
 import org.globant.pageObjects.mobile.DashBoardScreen;
 import org.globant.pageObjects.mobile.WorkFlowsScreen;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.apache.log4j.Logger;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -39,7 +39,6 @@ public class MobileDriverConfig {
      * SetUp before to run suite of test.
      *
      */
-
     public static void environmentSetUp() {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         ConfigCapabilities.deviceSetUp(capabilities);
@@ -49,9 +48,8 @@ public class MobileDriverConfig {
         } catch (MalformedURLException exception) {
             exception.printStackTrace();
         }
-        setUpStartApp();
-    }
 
+    }
 
     /**
      * Close the application after completing the test.
@@ -70,7 +68,7 @@ public class MobileDriverConfig {
         return mobileDriver;
     }
 
-    /**
+   /**
      * return SignUpOrLogInScreen after close the alerts.
      *
      * @return SignUpOrLogInScreen

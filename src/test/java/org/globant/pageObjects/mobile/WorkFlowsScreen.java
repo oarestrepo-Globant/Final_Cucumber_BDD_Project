@@ -13,13 +13,13 @@ import static org.globant.utils.configuration.mobile.MobileDriverConfig.getMobil
  */
 public class WorkFlowsScreen extends BaseScreen {
 
-    @AndroidFindBy(uiAutomator = "new UiSelector().resourceIdMatches(\".*permission_primary_btn\")")
+    @AndroidFindBy(id = "permission_primary_btn")
     private AndroidElement getStartedButton;
 
-    @AndroidFindBy(uiAutomator = "new UiSelector().resourceIdMatches(\".*permission_primary_btn\")")
+    @AndroidFindBy(id = "permission_primary_btn")
     private AndroidElement shareLocationButton;
 
-    @AndroidFindBy(uiAutomator = "new UiSelector().resourceIdMatches(\"android:id/button1\")")
+    @AndroidFindBy(id = "android:id/button1")
     private AndroidElement allowLocationButton;
 
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceIdMatches(\".*permission_allow_foreground_only_button\")")

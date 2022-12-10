@@ -13,12 +13,12 @@ import static java.lang.String.format;
  * This class has the setup to start the test.
  * It defines  driver, home Page and Watch page as a static attribute.
  * */
-public class BaseTest  {
+public class BaseWebTest {
     protected static WebDriverConfig driverWeb;
     protected static ESPNHomePage home;
     protected static ESPNWatchPage watchPage;
     private static String url = "https://www.espnqa.com/?src=com&_adblock=true&espn=cloud";
-    public static Logger log = Logger.getLogger(BaseTest.class);
+    public static Logger log = Logger.getLogger(BaseWebTest.class);
 
     /**
      * Allows you to open a driver, open the browser and delete cookies.

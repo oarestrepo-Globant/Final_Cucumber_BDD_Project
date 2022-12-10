@@ -3,13 +3,10 @@ package org.globant.pageObjects.mobile;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
-import io.appium.java_client.pagefactory.HowToUseLocators;
 import org.globant.utils.basePageObject.BaseScreen;
 
 import java.util.Arrays;
 import java.util.List;
-
-import static io.appium.java_client.pagefactory.LocatorGroupStrategy.ALL_POSSIBLE;
 
 // TODO: Auto-generated Javadoc
 
@@ -22,32 +19,28 @@ public class MapScreen extends BaseScreen {
     /**
      * Constructor method for MapScreen.
      *
-     * @param driver the driver
+     * @param driver:AndroidDriver<AndroidElement>
      */
     public MapScreen(AndroidDriver<AndroidElement> driver) {
         super(driver);
     }
 
-    @AndroidFindBy(uiAutomator = "new UiSelector().resourceIdMatches(\".*categoryTitle\")")
+    @AndroidFindBy(id = "categoryTitle")
     private AndroidElement categoryList;
 
-    @HowToUseLocators(androidAutomation = ALL_POSSIBLE)
-    @AndroidFindBy(uiAutomator = "new UiSelector().resourceIdMatches(\".*filterTitle.*\")")
-    @AndroidFindBy(uiAutomator = "new UiSelector().textContains(\"Filter\")")
+    @AndroidFindBy(id = "filterTitle")
     private AndroidElement filterButton;
 
-    @HowToUseLocators(androidAutomation = ALL_POSSIBLE)
-    @AndroidFindBy(uiAutomator = "new UiSelector().resourceIdMatches(\".*toggleTitle.*\")")
-    @AndroidFindBy(uiAutomator = "new UiSelector().textContains(\"Show List\")")
+    @AndroidFindBy(id = "toggleTitle")
     private AndroidElement showListButton;
 
-    @AndroidFindBy(uiAutomator = "new UiSelector().resourceIdMatches(\".*categorySelectHeader\")\n")
+    @AndroidFindBy (id = "categorySelectHeader")
     private AndroidElement categoryTitle;
 
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceIdMatches(\".*categoryTitleLayout\").childSelector(new UiSelector().classNameMatches(\"android.widget.ImageView\"))")
     private AndroidElement dropDownCategoryList;
 
-    @AndroidFindBy(uiAutomator = "new UiSelector().resourceIdMatches(\".*listSelectorContainer\").resourceIdMatches(\".*facilityTypeTitle\")")
+    @AndroidFindBy (id = "facilityTypeTitle")
     private List<AndroidElement> listOfCategoryOptions;
 
     @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.widget.LinearLayout\").childSelector(new UiSelector().descriptionContains(\"Hotels\"))")
@@ -71,7 +64,7 @@ public class MapScreen extends BaseScreen {
 
     /**
      * Allows you to evaluate whether the show list button is displayed.
-     * return true if Show List Button element is displayed in screen, otherwise false.
+     * @return true if Show List Button element is displayed in screen, otherwise false.
      */
     public boolean showListIsDisplayed() {
         return isElementAvailable(showListButton);

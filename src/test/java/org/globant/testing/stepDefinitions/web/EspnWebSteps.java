@@ -1,24 +1,23 @@
-package org.globant.testing.stepDefinitions;
+package org.globant.testing.stepDefinitions.web;
 
-import io.cucumber.java.Before;
 import io.cucumber.java.en.*;
-import org.globant.utils.baseTest.BaseTest;
+import org.globant.utils.baseTest.BaseWebTest;
 import org.testng.Assert;
 
 /**
  * Class for ESPN Web Steps.
  * This class has methods that represent the step-by-step for the test automation of the espn page.
  * */
-public class EspnWebSteps extends BaseTest {
+public class EspnWebSteps extends BaseWebTest {
     private String username = "Oscar!";
 
     /**
      * It lifts the driver and the browser before the test
-     * */
+     * *//*
     @Before("@web")
     public static void beforeWeb(){
         webTestSetup();
-    }
+    }*/
 
     /**
      * This method lifts the driver, performs the initial configurations
