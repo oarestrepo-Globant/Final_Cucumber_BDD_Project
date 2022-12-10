@@ -3,7 +3,7 @@ package org.globant.pageObjects.mobile;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
-import org.globant.utils.basePageObject.BaseScreen;
+import org.globant.utils.basePageObject.BaseMobileScreen;
 
 import java.util.Arrays;
 import java.util.List;
@@ -14,9 +14,8 @@ import static org.globant.utils.configuration.mobile.MobileDriverConfig.getMobil
 /**
  * Class for Menu screen.
  *
- * @author oscar.restrepo
  */
-public class MenuScreen extends BaseScreen {
+public class MenuScreen extends BaseMobileScreen {
 
     @AndroidFindBy(uiAutomator="new UiSelector().resourceIdMatches(\".*FeatureItem\")")
     private List<AndroidElement> menuOptions;

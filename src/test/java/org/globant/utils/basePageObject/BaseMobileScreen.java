@@ -22,18 +22,18 @@ import static org.openqa.selenium.support.PageFactory.initElements;
  * Base class for all screens Objects.
  *
  */
-public abstract class BaseScreen {
+public abstract class BaseMobileScreen {
 
     protected final AndroidDriver<AndroidElement> mobileDriver;
 
-    public Logger log = Logger.getLogger(BaseScreen.class);
+    public Logger log = Logger.getLogger(BaseMobileScreen.class);
 
     /**
      * Constructor method for standard screens object.
      *
      * @param driver : AndroidDriver
      */
-    public BaseScreen(AndroidDriver<AndroidElement> driver) {
+    public BaseMobileScreen(AndroidDriver<AndroidElement> driver) {
         this.mobileDriver = driver;
      initElements(new AppiumFieldDecorator(
                 driver, Duration.ofSeconds(10)), this);
@@ -103,9 +103,7 @@ public abstract class BaseScreen {
 
     /**
      * Wrapper for vertical swipe event.
-     *
-     *
-     */
+     * */
     public void verticalSwipeEvent() {
         Dimension dim = mobileDriver.manage().window().getSize();
         int x = dim.getHeight() / 2;

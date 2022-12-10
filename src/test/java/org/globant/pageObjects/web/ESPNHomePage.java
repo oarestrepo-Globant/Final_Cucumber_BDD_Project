@@ -88,6 +88,10 @@ public class ESPNHomePage extends BaseWebPage{
     /**
      * Allows you to locate the elements of the signup form
      * and then fill out the necessary information to create an account on the ESPN website.
+     * @param firstname:String
+     * @param lastname:String
+     * @param email:String
+     * @param password:String
      * */
     public void fillSignUpFormAndCreateAccount(String firstname, String lastname, String email, String password){
         super.typeOnPlaceholder(signupFirstNamePlaceHolder, firstname);
@@ -238,6 +242,7 @@ public class ESPNHomePage extends BaseWebPage{
 
     /**
      * Allows you to obtain the username displayed in the user panel.
+     * @return text from web element
      * */
     public String getUsernameLogged() {
         super.placeMouseToElement(userIcon);
@@ -246,6 +251,7 @@ public class ESPNHomePage extends BaseWebPage{
 
     /**
      * Allows to click on the "Watch" button.
+     * @return ESPNWatchPage instance.
      * */
     public ESPNWatchPage clickWatchButton(){
         super.clickElement(watchButton);

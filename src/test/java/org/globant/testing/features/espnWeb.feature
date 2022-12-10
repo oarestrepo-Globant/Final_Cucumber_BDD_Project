@@ -15,4 +15,4 @@ Feature: Espn web navigation
 
     Examples:
       | firstname | lastname   | email                   | password           |
-      | "Oscar"   | "Restrepo" | "3@pruebaoscarespn.com" | "password123*polo" |
+      | "Oscar"   | "Restrepo" | "7@pruebaoscarespn.com" | "password123*polo" |

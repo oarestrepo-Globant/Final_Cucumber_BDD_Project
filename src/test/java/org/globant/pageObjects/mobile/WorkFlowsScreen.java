@@ -3,7 +3,7 @@ package org.globant.pageObjects.mobile;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
-import org.globant.utils.basePageObject.BaseScreen;
+import org.globant.utils.basePageObject.BaseMobileScreen;
 
 import static org.globant.utils.configuration.mobile.MobileDriverConfig.getMobileDriver;
 
@@ -11,7 +11,7 @@ import static org.globant.utils.configuration.mobile.MobileDriverConfig.getMobil
  * Class for Work Flow Screen
  *
  */
-public class WorkFlowsScreen extends BaseScreen {
+public class WorkFlowsScreen extends BaseMobileScreen {
 
     @AndroidFindBy(id = "permission_primary_btn")
     private AndroidElement getStartedButton;
@@ -37,7 +37,6 @@ public class WorkFlowsScreen extends BaseScreen {
 
 
     /**
-     *
      * Start permissions process by clicking get started button.
      */
     public void startPermissionsProcess() {

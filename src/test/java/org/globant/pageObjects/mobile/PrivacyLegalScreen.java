@@ -3,7 +3,7 @@ package org.globant.pageObjects.mobile;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
-import org.globant.utils.basePageObject.BaseScreen;
+import org.globant.utils.basePageObject.BaseMobileScreen;
 
 import java.util.Arrays;
 import java.util.List;
@@ -12,7 +12,7 @@ import java.util.List;
  * Class for Privacy & Legal screen.
  *
  */
-public class PrivacyLegalScreen extends BaseScreen {
+public class PrivacyLegalScreen extends BaseMobileScreen {
 
     @AndroidFindBy (id = "txt_element")
     private List<AndroidElement> legaOptionsList;

@@ -3,18 +3,16 @@ package org.globant.pageObjects.mobile;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
-import org.globant.utils.basePageObject.BaseScreen;
+import org.globant.utils.basePageObject.BaseMobileScreen;
 
 import java.util.Arrays;
 import java.util.List;
-
-// TODO: Auto-generated Javadoc
 
 /**
  * Class for Map screen.
  *
  */
-public class MapScreen extends BaseScreen {
+public class MapScreen extends BaseMobileScreen {
 
     /**
      * Constructor method for MapScreen.
@@ -82,7 +80,6 @@ public class MapScreen extends BaseScreen {
     }
 
     /**
-     *
      * Evaluates the displayed options versus the desired ones and returns the number of matches.
      * @return number of matches.
      */

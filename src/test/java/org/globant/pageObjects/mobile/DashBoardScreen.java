@@ -3,7 +3,7 @@ package org.globant.pageObjects.mobile;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
-import org.globant.utils.basePageObject.BaseScreen;
+import org.globant.utils.basePageObject.BaseMobileScreen;
 
 import static org.globant.utils.configuration.mobile.MobileDriverConfig.getMobileDriver;
 
@@ -12,7 +12,7 @@ import static org.globant.utils.configuration.mobile.MobileDriverConfig.getMobil
  * Class for DashBoard screen.
  *
  */
-public class DashBoardScreen extends BaseScreen {
+public class DashBoardScreen extends BaseMobileScreen {
 
     @AndroidFindBy(id = "android:id/button2")
     private AndroidElement dismissPreferenceUpdateButton;
@@ -40,7 +40,7 @@ public class DashBoardScreen extends BaseScreen {
     }
 
     /**
-     * Navigate to Login Screen from DashBoard Screen.
+     * Navigate to Log in Screen from DashBoard Screen.
      * @return MapScreen instance.
      */
     public MapScreen goToMapScreen() {

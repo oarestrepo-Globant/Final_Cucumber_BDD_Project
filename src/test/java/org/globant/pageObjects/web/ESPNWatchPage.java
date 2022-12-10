@@ -1,7 +1,6 @@
 package org.globant.pageObjects.web;
 
 import org.globant.utils.basePageObject.BaseWebPage;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -75,6 +74,7 @@ public class ESPNWatchPage extends BaseWebPage {
 
     /**
      * Allows to go back to the previous web page.
+     * @return EspnHomePage instance.
      * */
     public ESPNHomePage backToHomePage(){
         super.backToPreviousPage();
