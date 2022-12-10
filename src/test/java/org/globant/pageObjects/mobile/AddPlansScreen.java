@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class AddPlansScreen extends BaseScreen {
 
-    @AndroidFindBy(uiAutomator = "new UiSelector().resourceIdMatches(\".*actionSheetItemText\")")
+    @AndroidFindBy(id = "actionSheetItemText")
     private List<AndroidElement> plansOptionList;
 
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceIdMatches(\".*actionSheetItemText\").text(\"Check Dining Availability\")")

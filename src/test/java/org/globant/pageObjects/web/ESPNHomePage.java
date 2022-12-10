@@ -94,7 +94,6 @@ public class ESPNHomePage extends BaseWebPage{
         super.typeOnPlaceholder(signupLastNamePlaceHolder,  lastname);
         super.typeOnPlaceholder(signupEmailPlaceHolder, email);
         super.typeOnPlaceholder(signupPasswordPlaceHolder, password);
-        super.scrollDownPage();
         super.clickElement(signUpButtonFromModal);
     }
 

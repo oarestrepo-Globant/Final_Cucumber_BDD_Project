@@ -10,13 +10,12 @@ import org.globant.pageObjects.mobile.PrivacyLegalScreen;
 import org.globant.utils.configuration.mobile.MobileDriverConfig;
 import org.testng.Assert;
 
-public class MobileSteps extends MobileDriverConfig {
+public class DisneyMobileSteps extends MobileDriverConfig {
 
     private final int amountOfPlansOptionsExpected = 11;
-    private final int optionsAmountExpected = 6;
+    private final int optionsAmountExpected = 8;
     private final int categoriesListedAmountExpected = 7;
     private final int legalOptionsAmountExpected = 10;
-
     private final int amountPlansOptionExpected = 7;
     private MapScreen map;
     private MenuScreen menu;

@@ -1,9 +1,9 @@
 package org.globant.testing.stepDefinitions.web;
 
 import io.cucumber.java.*;
-import org.globant.utils.baseTest.BaseTest;
+import org.globant.utils.baseTest.BaseWebTest;
 
-public class WebHooks extends BaseTest {
+public class EspnWebHooks extends BaseWebTest {
 
     /**
      * It lifts the driver and the browser before the test

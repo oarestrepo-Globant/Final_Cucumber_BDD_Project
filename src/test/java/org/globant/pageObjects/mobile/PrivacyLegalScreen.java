@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class PrivacyLegalScreen extends BaseScreen {
 
-    @AndroidFindBy(uiAutomator = "new UiSelector().resourceIdMatches(\".*txt_element\")")
+    @AndroidFindBy (id = "txt_element")
     private List<AndroidElement> legaOptionsList;
 
     /**
